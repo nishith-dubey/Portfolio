@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: none;
+}
+body {
+  font-family: "Raleway", sans-serif;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.footer-initial {
+  display: none;
+}
+.scrolled {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.footer::-webkit-progress-bar {
+  display: flex;
+}
+
+.footer-links:hover {
+  color: rgb(217, 20, 106);
+  transition: ease-in-out 0.2s;
+  transform: scale(1.15);
+}
+/* .checkout-btn:hover .arrow-right{
+      rotate: z 90deg;
+      transition: ease-in-out 0.3s;
+  } */
+.arrow {
+  display: inline-block;
+  transition: transform 0.35s ease-in-out;
+}
+.checkout-btn:hover {
+  transition: ease-in 0.2s;
+  border: solid 2px aqua;
+}
+.checkout-btn:hover .arrow {
+  transform: rotate(90deg);
+}
+
+.active {
+  color: rgb(217, 20, 106);
+  transition: ease-in-out 0.2s;
+  transform: scale(1.15);
+}
+
+.hexagon {
+  background-color: rgb(13, 163, 177);
+  height: 100px;
+  width: 58px;
+}
+.hexagon::before {
+  content: "";
+  position: absolute;
+  height: 100px;
+  width: 58px;
+  background-color: rgb(13, 163, 177);
+  transform: rotateZ(60deg);
+}
+.hexagon::after {
+  content: "";
+  position: absolute;
+  height: 100px;
+  width: 58px;
+  background-color: rgb(13, 163, 177);
+  transform: rotateZ(-60deg);
+}
+.icon {
+  overflow: visible;
+  transform: translate(-2%, 30%);
+  width: 60px;
+  height: 60px;
+  filter: grayscale(1) invert(1);
+}
+
+.bar {
+  /* width: 300px; */
+  height: 20px;
+  padding: 4px;
+  background-color: rgb(140, 140, 68);
+}
