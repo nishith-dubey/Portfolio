@@ -1,51 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import About from "./About";
 import Projects from "./Projects";
 
-const firstSection = document.querySelector(".main-section");
-document.addEventListener("scroll", () => {
-    const footer = document.querySelector(".footer1");
-    let y = firstSection.getBoundingClientRect().y;
-    if(y < -590){
-        footer.classList.add('scrolled');
-        footer.classList.remove('footer-initial');
-    }
-    else {
-        footer.classList.add('footer-initial');
-        footer.classList.remove('scrolled');
-    }
-})
-document.addEventListener('scroll', () => {
-    const home = document.getElementById('home-link');
-    const about = document.getElementById('about-link1');
-    const projects = document.getElementById('projects-link1');
-    const contact = document.getElementById('contact-link1');
-    let y = firstSection.getBoundingClientRect().y;
-    console.log(y);
+// const firstSection = document.querySelector(".main-section");
+// document.addEventListener("scroll", () => {
+//     const footer = document.querySelector(".footer1");
+//     let y = firstSection.getBoundingClientRect().y;
+//     if(y < -590){
+//         footer.classList.add('scrolled');
+//         footer.classList.remove('footer-initial');
+//     }
+//     else {
+//         footer.classList.add('footer-initial');
+//         footer.classList.remove('scrolled');
+//     }
+// })
+// document.addEventListener('scroll', () => {
+//     const home = document.getElementById('home-link');
+//     const about = document.getElementById('about-link1');
+//     const projects = document.getElementById('projects-link1');
+//     const contact = document.getElementById('contact-link1');
+//     let y = firstSection.getBoundingClientRect().y;
+//     console.log(y);
     
-    if(y > -590){
-        home.classList.add('active');
-        about.classList.remove('active');
-        projects.classList.remove('active');
-        contact.classList.remove('active');
-    }
-    else if(y < -590 && y >= -1578){
-        about.classList.add('active');
-        home.classList.remove('active');
-        projects.classList.remove('active');
-        contact.classList.remove('active');
-    }
-    else if(y < -1578) {
-        about.classList.remove('active');
-        home.classList.remove('active');
-        projects.classList.add('active');
-        contact.classList.remove('active');
-    }
-})
+//     if(y > -590){
+//         home.classList.add('active');
+//         about.classList.remove('active');
+//         projects.classList.remove('active');
+//         contact.classList.remove('active');
+//     }
+//     else if(y < -590 && y >= -1578){
+//         about.classList.add('active');
+//         home.classList.remove('active');
+//         projects.classList.remove('active');
+//         contact.classList.remove('active');
+//     }
+//     else if(y < -1578) {
+//         about.classList.remove('active');
+//         home.classList.remove('active');
+//         projects.classList.add('active');
+//         contact.classList.remove('active');
+//     }
+// })
 
   
 
 function LandingPage() {
+  const [isSticky, setIsSticky] = useState('footer-initial');
+  // const [isHomePage, setIsHomePage] = useState('footer-initial');
+  const [isActive, setIsActive] = useState('home');
+  // const [isAboutPage, setIsAboutPage] = useState('footer-initial');
+  // const [isProjectPage, setIsProjectPage] = useState('footer-initial');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 590.5) {
+        setIsSticky('scrolled');
+        // setIsHomePage();
+        // setIsAboutPage();
+        // setIsProjectPage();
+        setIsActive('about');
+      } 
+      else {
+        setIsSticky('footer-initial');
+        setIsHomePage();
+        setIsAboutPage();
+        setIsProjectPage();
+      }
+      if(window.scrollY > 1577){
+        setIsActive('project');
+      }
+      console.log(window.scrollY);
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <div
@@ -61,15 +91,14 @@ function LandingPage() {
       <div className="shooting-star"></div>
       <div className="shooting-star"></div>
     </div>
-    <div className="flex flex-col justify-center items-center gap-12 leading-none max-w-[65vw] mt-8">
+    <div className="flex flex-col justify-center items-center gap-12 leading-none max-w-[79vw] mt-8">
       <h1 className="text-6xl">
         Hello, I'm
         <span className="text-pink-600 font-semibold ml-3">Nishith Dubey</span>
       </h1>
       <h1 className="text-xl flex flex-col items-center justify-center">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-        corporis repellat, quibusdam .
-        <span>Lorem ipsum dolor sit amet.</span>
+      I'm a Full Stack Developer with a serious passion for UI effects, animations and creating intuitive user experiences
+        <span>with highly scalable backend.</span>
       </h1>
       <a
         href="#projects"
@@ -115,7 +144,7 @@ function LandingPage() {
 </div>
 
 
-      <About/>
+      <About isSticky={isSticky} isActive={isActive}/>
 
       <Projects/>
     </>

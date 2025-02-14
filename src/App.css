@@ -59,7 +59,7 @@ body::-webkit-scrollbar {
 
 .active {
   color: rgb(217, 20, 106);
-  transition: ease-in-out 0.2s;
+  transition: ease-in-out;
   transform: scale(1.15);
 }
 
@@ -93,8 +93,11 @@ body::-webkit-scrollbar {
 }
 
 .bar {
-  /* width: 300px; */
-  height: 20px;
-  padding: 4px;
-  background-color: rgb(140, 140, 68);
+  height: 22px;
+  background-color: #56888a;
+  padding-left: 5px;
 }
+
+.footer1.scrolled { /* Scrolled styles */ }
+.footer1.footer-initial { /* Initial styles */ }
+.nav-link.active { /* Active link styles */ }
