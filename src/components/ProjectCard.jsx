@@ -11,7 +11,6 @@ function ProjectCard({image, pName, using, pLink}) {
     >
       <img 
         src={`${image}`}
-        alt="Coveaar" 
         className="absolute w-full h-full"
       />
       {/* Cover Overlay */}
