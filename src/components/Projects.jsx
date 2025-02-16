@@ -68,8 +68,8 @@ function Projects() {
             </div>
           </div>
             <div className="flex w-[90vw] h-auto flex-wrap">
-                <ProjectCard image={'p1.png'} pName={"Portfolio | Nishith Dubey"} using={"React / Sass"} pLink={"nishith-dubey.vercel.app"}/>
-                <ProjectCard image={'p2.png'} pName={"MachineYard"} using={"React / Node.js / Sass"} pLink={"machineyard.vercel.app"}/>
+                <ProjectCard image={'../src/assets/p1.png'} pName={"Portfolio | Nishith Dubey"} using={"React / Sass"} pLink={"nishith-dubey.vercel.app"}/>
+                <ProjectCard image={'../src/assets/p2.png'} pName={"MachineYard"} using={"React / Node.js / Sass"} pLink={"machineyard.vercel.app"}/>
                 <ProjectCard/>
                 <ProjectCard/>
                 <ProjectCard/>

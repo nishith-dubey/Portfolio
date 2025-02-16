@@ -4,11 +4,8 @@ import {
   mdiInstagram,
   mdiGithub,
   mdiGmail,
-  mdiTwitter,
 } from "@mdi/js";
 import Icon from "@mdi/react";
-import { CIcon } from "@coreui/icons-react";
-import { cibLeetcode } from "@coreui/icons";
 import { MdDoubleArrow } from "react-icons/md";
 
 function Footer() {

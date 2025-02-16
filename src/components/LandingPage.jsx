@@ -3,48 +3,6 @@ import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import Footer from "./Footer";
-
-// const firstSection = document.querySelector(".main-section");
-// document.addEventListener("scroll", () => {
-//     const footer = document.querySelector(".footer1");
-//     let y = firstSection.getBoundingClientRect().y;
-//     if(y < -590){
-//         footer.classList.add('scrolled');
-//         footer.classList.remove('footer-initial');
-//     }
-//     else {
-//         footer.classList.add('footer-initial');
-//         footer.classList.remove('scrolled');
-//     }
-// })
-// document.addEventListener('scroll', () => {
-//     const home = document.getElementById('home-link');
-//     const about = document.getElementById('about-link1');
-//     const projects = document.getElementById('projects-link1');
-//     const contact = document.getElementById('contact-link1');
-//     let y = firstSection.getBoundingClientRect().y;
-//     console.log(y);
-    
-//     if(y > -590){
-//         home.classList.add('active');
-//         about.classList.remove('active');
-//         projects.classList.remove('active');
-//         contact.classList.remove('active');
-//     }
-//     else if(y < -590 && y >= -1578){
-//         about.classList.add('active');
-//         home.classList.remove('active');
-//         projects.classList.remove('active');
-//         contact.classList.remove('active');
-//     }
-//     else if(y < -1578) {
-//         about.classList.remove('active');
-//         home.classList.remove('active');
-//         projects.classList.add('active');
-//         contact.classList.remove('active');
-//     }
-// })
-
   
 
 function LandingPage() {

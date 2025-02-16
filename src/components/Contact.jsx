@@ -4,9 +4,9 @@ function Contact({ isSticky, isActive }) {
   return (
     <div
       id="contact"
-      className="second-section w-full h-[110vh] bg-[url('bg5.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
+      className="second-section w-full h-[110vh] bg-[url('./assets/bg5.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
     >
-      <div className="w-full h-full bg-black bg-opacity-80 flex justify-center items-center">
+      <div className="w-full h-full bg-black bg-opacity-85 flex justify-center items-center">
         <div className="stars-container mt-10 mr-10">
           <div className="shooting-star"></div>
           <div className="shooting-star"></div>
