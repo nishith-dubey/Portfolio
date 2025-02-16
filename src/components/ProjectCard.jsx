@@ -10,7 +10,7 @@ function ProjectCard({image, pName, using, pLink}) {
       whileHover="hover"
     >
       <img 
-        src={`../src/assets/${image}`}
+        src={`${image}`}
         alt="Coveaar" 
         className="absolute w-full h-full"
       />

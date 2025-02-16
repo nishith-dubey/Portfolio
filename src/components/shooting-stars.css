@@ -88,7 +88,7 @@
   .shooting-star:nth-child(5){
       top: calc(50% - -100px);
       left: calc(50% - 150px);
-      animation-delay: 1.8s;
+      animation-delay: 1.6s;
   }
   .shooting-star:nth-child(5)::before, .shooting-star:nth-child(5)::after {
       animation-delay: 1.8s;

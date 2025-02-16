@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import About from "./About";
 import Projects from "./Projects";
+import Contact from "./Contact";
+import Footer from "./Footer";
 
 // const firstSection = document.querySelector(".main-section");
 // document.addEventListener("scroll", () => {
@@ -69,6 +71,9 @@ function LandingPage() {
       }
       if(window.scrollY > 1577){
         setIsActive('project');
+      }
+      if(window.scrollY > 2558){
+        setIsActive('contact')
       }
       console.log(window.scrollY);
     }
@@ -147,6 +152,9 @@ function LandingPage() {
       <About isSticky={isSticky} isActive={isActive}/>
 
       <Projects/>
+
+      <Contact/>
+      <Footer/>
     </>
   );
 }

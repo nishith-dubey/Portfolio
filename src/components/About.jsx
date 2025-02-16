@@ -25,7 +25,7 @@ function About({ isSticky, isActive }) {
           >
             PROJECTS
           </a>
-          <a href="#contact" id="contact-link1" className="footer-links">
+          <a href="#contact" id="contact-link1" className={`footer-links ${isActive == "contact" && "active"}`}>
             CONTACT
           </a>
         </div>
