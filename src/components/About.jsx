@@ -1,31 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 
-function About({ isSticky, isActive }) {
+function About({ isSticky, isActive, isMobile }) {
+  const [visibleHamburgerMenu, setVisibleHamburgerMenu] = useState("hidden");
+
   return (
     <div
       id="about"
       className="second-section w-full h-[150vh] bg-[url('./assets/bg2.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
     >
-      <div className={`footer1 ${isSticky}`}>
+      <div className={`footer1 fixed ${isSticky} top-0`}>
         <div className="flex relative z-50 gap-7 bg-black bg-opacity-95 text-lg w-full pl-28 py-4 p-4">
-          <a href="#home" id="home-link" className="footer-links">
+          <div
+            className={`md:hidden ${visibleHamburgerMenu} flex-col pl-5 justify-center absolute bg-transparent/85 text-white w-32 h-40 top-[100%] left-50 transition-all duration-300 ease-in-out z-40`}
+          >
+            <a
+              href="#home"
+              className="mb-2 border-b-[2px] border-pink-500  nk-500 w-14"
+            >
+              HOME
+            </a>
+            <a
+              href="#about"
+              className="mb-2 border-b-[2px] border-pink-500 w-[58px]"
+            >
+              ABOUT
+            </a>
+            <a
+              href="#projects"
+              className="mb-2 border-b-[2px] border-pink-500 w-[88px]"
+            >
+              PROJECTS
+            </a>
+            <a
+              href="#contact"
+              className=" border-b-[2px] border-pink-500 w-[80px]"
+            >
+              CONTACT
+            </a>
+          </div>
+          <div
+            onClick={() => {
+              setVisibleHamburgerMenu((prev) =>
+                prev === "hidden" ? "flex" : "hidden"
+              );
+            }}
+            className="cursor-pointer sm:hidden text-white text-4xl pl-5"
+          >
+            <GiHamburgerMenu />
+          </div>
+          <a
+            href="#home"
+            id="home-link"
+            className="hidden sm:flex footer-links"
+          >
             HOME
           </a>
           <a
             href="#about"
             id="about-link1"
-            className={`footer-links ${isActive == "about" && "active"}`}
+            className={`hidden sm:flex footer-links ${
+              isActive == "about" && "active"
+            }`}
           >
             ABOUT
           </a>
           <a
             href="#projects"
             id="projects-link1"
-            className={`footer-links ${isActive == "project" && "active"}`}
+            className={`hidden sm:flex footer-links ${
+              isActive == "project" && "active"
+            }`}
           >
             PROJECTS
           </a>
-          <a href="#contact" id="contact-link1" className={`footer-links ${isActive == "contact" && "active"}`}>
+          <a
+            href="#contact"
+            id="contact-link1"
+            className={`hidden sm:flex footer-links ${
+              isActive == "contact" && "active"
+            }`}
+          >
             CONTACT
           </a>
         </div>
@@ -99,10 +154,7 @@ function About({ isSticky, isActive }) {
               </div>
             </div>
           </div>
-          <div
-            id="section-3"
-            className="flex justify-end"
-          >
+          <div id="section-3" className="flex justify-end">
             <div className="flex flex-col gap-4 justify-center items-center">
               <div className="flex flex-col justify-center items-center text-center gap-3 max-w-[500px]">
                 <h1 className="font-bold text-3xl text-fuchsia-600">
@@ -124,10 +176,10 @@ function About({ isSticky, isActive }) {
                   I am a Frontend Development Intern at Beiyo.in, where I
                   specialize in UI layout and enhancing user experience. Beiyo
                   is dedicated to making urban living more affordable,
-                  comfortable, and community-driven.<br/> Previously, I interned at
-                  E-Notebook, contributing to a platform that helps pharmacy
-                  students systematically track chemical reactions, supporting
-                  research and drug discovery.
+                  comfortable, and community-driven.
+                  <br /> Previously, I interned at E-Notebook, contributing to a
+                  platform that helps pharmacy students systematically track
+                  chemical reactions, supporting research and drug discovery.
                 </h2>
               </div>
             </div>

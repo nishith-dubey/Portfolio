@@ -101,3 +101,9 @@ body::-webkit-scrollbar {
 .footer1.scrolled { /* Scrolled styles */ }
 .footer1.footer-initial { /* Initial styles */ }
 .nav-link.active { /* Active link styles */ }
+
+/* @media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+} */
