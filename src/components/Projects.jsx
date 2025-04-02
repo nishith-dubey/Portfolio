@@ -78,7 +78,7 @@ function Projects() {
               image={"/p2.png"}
               pName={"MachineYard"}
               using={"React / Node.js / Sass"}
-              pLink={"https://machineyard.vercel.app"}
+              pLink={"https://machine-yard.vercel.app"}
             />
 
             <ProjectCard />
