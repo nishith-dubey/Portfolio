@@ -50,7 +50,7 @@ function Projects() {
   return (
     <div
       id="projects"
-      className="h-[140vh] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden w-full"
+      className="h-[150vh] flex flex-col antialiased bg-black dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden w-[100vw] overflow-x-hidden"
     >
       <div
         className={cn(

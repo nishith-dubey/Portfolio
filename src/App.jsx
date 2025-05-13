@@ -23,9 +23,9 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       {loading ? <Loader /> : <LandingPage/>}
-    </>
+    </div>
   )
 }
 
