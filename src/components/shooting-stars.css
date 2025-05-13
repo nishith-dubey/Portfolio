@@ -11,7 +11,7 @@
   .shooting-star{
       position: absolute;
       top: 50%;
-      left: 50%;
+      left: 20%;
       height: 2px;
       width: 100px;
       background: linear-gradient(-45deg, #5F91FF, rgba(0,0,255,0));
