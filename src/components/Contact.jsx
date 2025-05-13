@@ -1,6 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Contact({ isSticky, isActive }) {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Submitting...");
+
+    try {
+      const res = await fetch("http://localhost:5000/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("Failed to send message.");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("Error occurred.");
+    }
+  };
+
   return (
     <div
       id="contact"
@@ -27,27 +63,43 @@ function Contact({ isSticky, isActive }) {
                 shout by email or by using the form below.
               </div>
             </div>
-            <div className="flex flex-col items-end w-[40vw] h-auto mt-10 gap-2">
-              <input
-                className="bg-transparent w-full h-10 px-3 py-1 border-[#999d9b] border-[1px] placeholder:text-[#999d9b]"
-                type="text"
-                placeholder="Name"
-              />
-              <input
-                className="bg-transparent w-full h-10 px-3 py-1 border-[#999d9b] border-[1px] placeholder:text-[#999d9b]"
-                type="text"
-                placeholder="Enter email"
-              />
-              <textarea
-                className="h-40 bg-transparent w-full px-3 py-1 border-[#999d9b] border-[1px] placeholder:text-[#999d9b]"
-                type="text"
-                placeholder="Your Message"
-                name=""
-                id=""
-              ></textarea>
-              <button className="bg-transparent w-32 h-10 px-3 py-1 border-[#999d9b] border-[1px] font-semibold">
-                SUBMIT
-              </button>
+            <div>
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col items-end w-[40vw] h-auto mt-10 gap-2"
+              >
+                <input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Name"
+                  className="bg-transparent w-full h-10 px-3 py-1 border-[#999d9b] border-[1px] placeholder:text-[#999d9b]"
+                  required
+                />
+                <input
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter email"
+                  className="bg-transparent w-full h-10 px-3 py-1 border-[#999d9b] border-[1px] placeholder:text-[#999d9b]"
+                  required
+                />
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Your Message"
+                  className="h-40 bg-transparent w-full px-3 py-1 border-[#999d9b] border-[1px] placeholder:text-[#999d9b]"
+                  required
+                ></textarea>
+                <button
+                  type="submit"
+                  className="bg-transparent w-32 h-10 px-3 py-1 border-[#999d9b] border-[1px] font-semibold"
+                >
+                  SUBMIT
+                </button>
+                <p className="text-sm mt-2">{status}</p>
+              </form>
             </div>
           </div>
         </div>

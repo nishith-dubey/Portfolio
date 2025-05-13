@@ -37,7 +37,7 @@ function ProjectCard({image, pName, using, pLink}) {
       {/* Visit Button Animation */}
       <motion.a
         href={`${pLink}`}
-        className="absolute bottom-5 border border-pink-500 text-pink-500 py-2 px-4 rounded-md text-sm"
+        className="absolute bottom-5 border bg-pink-600 hover:bg-pink-500 text-white py-2 px-4 rounded-md text-sm"
         variants={{
           initial: { y: 20, opacity: 0 },
           hover: { y: 0, opacity: 1 },

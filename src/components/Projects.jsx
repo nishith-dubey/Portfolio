@@ -7,7 +7,7 @@ function Projects() {
   return (
     <div
       id="projects"
-      className="second-section w-full h-[150vh] bg-[url('./assets/bg04.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
+      className="second-section w-full h-[150vh] bg-[url('./assets/bg04.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center max-w-[100vw]"
     >
       <div className="w-full h-full bg-black bg-opacity-90 flex justify-center items-center">
         <div className="flex flex-col justify-center items-center max-w-[75vw]">
@@ -19,7 +19,7 @@ function Projects() {
             <div className="underline w-[200px] h-[3px] bg-white mt-3"></div>
           </div>
           <div className="flex flex-col mt-16 mb-5">
-            <div className="text-xl text-[#b3b3b3] flex gap-[6vw]">
+            <div className="text-xl text-[#b3b3b3] flex gap-[6vw] max-w-[100vw]">
               <button
                 onClick={() => setIsActive("all")}
                 className={`${
@@ -81,7 +81,11 @@ function Projects() {
               pLink={"https://machine-yard.vercel.app"}
             />
 
-            <ProjectCard />
+            <ProjectCard
+              image={"/p3.png"}
+              pName={"Modern_UI_Music-Academy"}
+              using={"Nextjs / Accertinity UI"}
+              pLink={"https://music-8sbi994m6-nishith-dubeys-projects.vercel.app/"} />
             <ProjectCard />
             <ProjectCard />
             <ProjectCard />

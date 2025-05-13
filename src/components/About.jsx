@@ -7,7 +7,7 @@ function About({ isSticky, isActive, isMobile }) {
   return (
     <div
       id="about"
-      className="second-section w-full h-[150vh] bg-[url('./assets/bg2.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
+      className="second-section w-full lg:h-[150vh] bg-[url('./assets/bg2.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
     >
       <div className={`footer1 fixed ${isSticky} top-0`}>
         <div className="flex relative z-50 gap-7 bg-black bg-opacity-95 text-lg w-full pl-28 py-4 p-4">
@@ -92,11 +92,11 @@ function About({ isSticky, isActive, isMobile }) {
             id="section-1"
             className="p-4 flex flex-col justify-center items-center"
           >
-            <h1 className="header text-5xl font-semibold">My Websites are</h1>
+            <h1 className="header text-3xl lg:text-5xl font-semibold lg:mt-0 mt-10">My Websites are</h1>
             <div className="underline w-[210px] h-[4px] bg-white mt-3"></div>
           </div>
-          <div id="section-2" className="flex w-[80vw] justify-between">
-            <div className="flex flex-col items-center justify-between gap-3">
+          <div id="section-2" className="flex w-[85vw] lg:w-[80vw] justify-between gap-5 flex-wrap lg:flex-nowrap">
+            <div className="flex flex-col items-center justify-between gap-3 w-[30vw] lg:w-auto">
               <div className="hexagon">
                 <img
                   src="https://cdn-icons-png.flaticon.com/128/159/159085.png"
@@ -110,7 +110,7 @@ function About({ isSticky, isActive, isMobile }) {
                 </h3>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center gap-3">
+            <div className="flex flex-col items-center justify-center gap-3 w-[30vw] lg:w-auto">
               <div className="hexagon">
                 <img
                   src="https://www.svgrepo.com/show/21810/tablet-and-laptop.svg"
@@ -124,7 +124,7 @@ function About({ isSticky, isActive, isMobile }) {
                 </h3>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center gap-3">
+            <div className="flex flex-col items-center justify-center gap-3 w-[30vw] lg:w-auto">
               <div className="hexagon">
                 <img
                   src="https://cdn-icons-png.flaticon.com/128/3355/3355192.png"
@@ -138,7 +138,7 @@ function About({ isSticky, isActive, isMobile }) {
                 </h3>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center gap-3">
+            <div className="flex flex-col items-center justify-center gap-3 w-[30vw] lg:w-auto">
               <div className="hexagon">
                 <img
                   src="https://cdn-icons-png.flaticon.com/128/7837/7837411.png"
@@ -154,13 +154,13 @@ function About({ isSticky, isActive, isMobile }) {
               </div>
             </div>
           </div>
-          <div id="section-3" className="flex justify-end">
-            <div className="flex flex-col gap-4 justify-center items-center">
+          <div id="section-3" className="flex justify-end lg:flex-nowrap flex-wrap max-w-[90vw]">
+            <div className="flex flex-col gap-8 lg:gap-4 justify-center items-center">
               <div className="flex flex-col justify-center items-center text-center gap-3 max-w-[500px]">
                 <h1 className="font-bold text-3xl text-fuchsia-600">
                   More about myself
                 </h1>
-                <h2>
+                <h2 className="lg:text-[16px] text-[14px]">
                   I'm an undergraduate in B-Tech Computer Science and
                   Engineering from Shri GS Institute of Technology & Science,
                   Indore. Currently I'm working on MERN stack and Django but
@@ -172,7 +172,7 @@ function About({ isSticky, isActive, isMobile }) {
                 <h1 className="font-bold text-3xl text-pink-500">
                   Work Experience
                 </h1>
-                <h2>
+                <h2 className="lg:text-[16px] text-[14px]">
                   I am a Frontend Development Intern at Beiyo.in, where I
                   specialize in UI layout and enhancing user experience. Beiyo
                   is dedicated to making urban living more affordable,
@@ -183,7 +183,7 @@ function About({ isSticky, isActive, isMobile }) {
                 </h2>
               </div>
             </div>
-            <div className="flex ml-40 mt-10 flex-col gap-4 w-[550px]">
+            <div className="flex ml-40 mt-10 flex-col gap-4   w-[550px]">
               <div className="flex justify-start gap-3">
                 <h1 className="w-20">HTML5</h1>
                 <div className="bar w-[255px]">85%</div>

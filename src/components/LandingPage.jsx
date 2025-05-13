@@ -96,7 +96,7 @@ function LandingPage() {
             </a>
           </div>
         </div>
-        <div className="footer flex flex-col items-start w-full">
+        <div className="footer flex flex-col items-start w-full max-w-[100vw]">
           <div className="flex gap-7 bg-black bg-opacity-95 text-lg w-full pl-4 md:pl-28 py-4 p-4 relative">
             <div
               className={`md:hidden ${visibleHamburgerMenu} flex-col pl-4 justify-center absolute bg-transparent/85 text-white w-32 h-40 bottom-[100%] left-0 transition-all duration-300 ease-in-out`}
