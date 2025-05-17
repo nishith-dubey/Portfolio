@@ -183,23 +183,35 @@ function Projects() {
             <ProjectCard
               image={"/p1.png"}
               pName={"Portfolio | Nishith Dubey"}
-              using={"React / Sass"}
+              using={"React"}
               pLink={"https://nishith-dubey.vercel.app"}
+              isLive={true}
             />
             <ProjectCard
               image={"/p2.png"}
-              pName={"MachineYard"}
-              using={"React / Node.js / Sass"}
+              pName={"Machine Yard"}
+              using={"HTML / TailwindCSS / Node.js"}
               pLink={"https://machine-yard.vercel.app"}
+              isLive={true}
             />
 
             <ProjectCard
               image={"/p3.png"}
-              pName={"Modern_UI_Music-Academy"}
+              pName={"Modern UI Music-Academy"}
               using={"Nextjs / Accertinity UI"}
               pLink={
                 "https://music-8sbi994m6-nishith-dubeys-projects.vercel.app/"
               }
+              isLive={true}
+            />
+            <ProjectCard
+              image={"/p4.png"}
+              pName={"SumAI"}
+              using={"Nextjs / Saas AI"}
+              pLink={
+                ""
+              }
+              isLive={false}
             />
           </motion.div>
         </div>

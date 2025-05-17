@@ -1,51 +1,61 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import {Link} from 'react-router-dom'
 
-function ProjectCard({image, pName, using, pLink}) {
+function ProjectCard({ image, pName, using, pLink, isLive }) {
   return (
     <>
-    <motion.div 
-      className="m-[4px] w-[29vw] h-[30vh] relative bg-gray-800 text-white overflow-hidden cursor-pointer flex justify-center"
-      initial="initial"
-      whileHover="hover"
-    >
-      <img 
-        src={`${image}`}
-        className="absolute w-full h-full"
-      />
-      {/* Cover Overlay */}
       <motion.div
-        className="border-[2px] absolute inset-0 bg-black/85"
-        variants={{
-          initial: { opacity: 0 },
-          hover: { opacity: 1 },
-        }}
-      ></motion.div>
-
-      {/* Title Animation */}
-      <motion.h2
-        className="absolute text-center w-full mt-10"
-        variants={{
-          initial: { y: -20, opacity: 0 },
-          hover: { y: 0, opacity: 1 },
-        }}
+        className="m-[4px] w-[29vw] h-[30vh] relative bg-gray-800 text-white overflow-hidden cursor-pointer flex justify-center"
+        initial="initial"
+        whileHover="hover"
       >
-        <div className="text-white font-semibold text-3xl">{pName}</div>
-        <div className="text-[#e31b6d] text-xl">{using}</div>
-      </motion.h2>
+        <img src={`${image}`} className="absolute w-full h-full" />
+        {/* Cover Overlay */}
+        <motion.div
+          className="border-[2px] absolute inset-0 bg-black/85"
+          variants={{
+            initial: { opacity: 0 },
+            hover: { opacity: 1 },
+          }}
+        ></motion.div>
 
-      {/* Visit Button Animation */}
-      <motion.a
-        href={`${pLink}`}
-        className="absolute bottom-5 border bg-pink-600 hover:bg-pink-500 text-white py-2 px-4 rounded-md text-sm"
-        variants={{
-          initial: { y: 20, opacity: 0 },
-          hover: { y: 0, opacity: 1 },
-        }}
-      >
-        Visit
-      </motion.a>
-    </motion.div>
+        {/* Title Animation */}
+        <motion.h2
+          className="absolute text-center w-full mt-10"
+          variants={{
+            initial: { y: -20, opacity: 0 },
+            hover: { y: 0, opacity: 1 },
+          }}
+        >
+          <div className="text-white font-semibold text-3xl">{pName}</div>
+          <div className="text-[#e31b6d] text-xl">{using}</div>
+        </motion.h2>
+
+        {/* Visit Button Animation */}
+        {isLive ? (
+          <motion.a
+            href={`${pLink}`}
+            className="absolute bottom-5 border bg-pink-600 hover:bg-pink-500 text-white py-2 px-4 rounded-md text-sm"
+            variants={{
+              initial: { y: 20, opacity: 0 },
+              hover: { y: 0, opacity: 1 },
+            }}
+          >
+            Visit
+          </motion.a>
+        ) : (
+          <motion.div
+            className="absolute bottom-5 border bg-pink-600 hover:bg-pink-500 text-white py-2 px-4 rounded-md text-sm"
+            variants={{
+              initial: { y: 20, opacity: 0 },
+              hover: { y: 0, opacity: 1 },
+            }}
+          >
+            Not live
+          </motion.div>
+        )}
+      </motion.div>
     </>
   );
 }
