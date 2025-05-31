@@ -50,16 +50,8 @@ function Projects() {
   return (
     <div
       id="projects"
-      className="h-[150vh] flex flex-col antialiased bg-black dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden w-[100vw] overflow-x-hidden"
+      className="h-[150vh] flex flex-col antialiased bg-[url('./assets/bg04.jpg')] bg-cover bg-fixed dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden w-[100vw] overflow-x-hidden"
     >
-      <div
-        className={cn(
-          "absolute inset-0",
-          "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-          "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"
-        )}
-      />
       <div className="w-full h-full bg-black bg-opacity-90 flex justify-center items-center">
         <div className="flex flex-col justify-center items-center max-w-[75vw] z-40">
           <div
