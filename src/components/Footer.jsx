@@ -44,7 +44,7 @@ function Footer() {
             <Icon path={mdiGmail} size={1.2} className="text-white" />
           </a>
           <a
-            href={"https://leetcode.com/nishith-dubey"}
+            href={"https://leetcode.com/nishithrbd"}
             className="w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-300 hover:bg-[#FEA116]"
           >
             <div className="leetcode">
