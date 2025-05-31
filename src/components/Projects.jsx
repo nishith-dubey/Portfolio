@@ -213,6 +213,15 @@ function Projects() {
               }
               isLive={false}
             />
+            <ProjectCard
+              image={"/p5.png"}
+              pName={"imagyn"}
+              using={"Reactjs / Nodejs / Saas AI"}
+              pLink={
+                ""
+              }
+              isLive={false}
+            />
           </motion.div>
         </div>
       </div>
