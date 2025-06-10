@@ -24,7 +24,7 @@ function LandingPage() {
       if(isMobile === true){
         vh = 286;
       }
-      console.log(window.scrollY);
+      // console.log(window.scrollY);
       if (window.scrollY > 0.91*vh) {
         setIsSticky("scrolled");
         // setIsHomePage();

@@ -210,9 +210,9 @@ function Projects() {
               pName={"imagyn"}
               using={"Reactjs / Nodejs / Saas AI"}
               pLink={
-                ""
+                "https://imagyn.vercel.app"
               }
-              isLive={false}
+              isLive={true}
             />
           </motion.div>
         </div>
