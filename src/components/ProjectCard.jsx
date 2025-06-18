@@ -6,14 +6,14 @@ function ProjectCard({ image, pName, using, pLink, isLive }) {
   return (
     <>
       <motion.div
-        className="m-[4px] w-[29vw] h-[30vh] relative bg-gray-800 text-white overflow-hidden cursor-pointer flex justify-center"
+        className="rounded-lg lg:w-[29vw] md:w-[40vw] w-[75vw] lg:h-[32vh] md:h-[28vh] h-[40vh] mt-4 md:mt-0 relative bg-gray-800 text-white overflow-hidden cursor-pointer flex justify-center"
         initial="initial"
         whileHover="hover"
       >
         <img src={`${image}`} className="absolute w-full h-full" />
         {/* Cover Overlay */}
         <motion.div
-          className="border-[2px] absolute inset-0 bg-black/85"
+          className="border-[2px] rounded-lg absolute inset-0 bg-black/85"
           variants={{
             initial: { opacity: 0 },
             hover: { opacity: 1 },

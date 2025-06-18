@@ -50,10 +50,10 @@ function Projects() {
   return (
     <div
       id="projects"
-      className="h-[150vh] flex flex-col antialiased bg-[url('./assets/bg04.jpg')] bg-cover bg-fixed dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden w-[100vw] overflow-x-hidden"
+      className=" flex flex-col antialiased bg-[url('./assets/bg04.jpg')] bg-cover bg-fixed dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden w-[100vw] overflow-x-hidden"
     >
       <div className="w-full h-full bg-black bg-opacity-90 flex justify-center items-center">
-        <div className="flex flex-col justify-center items-center max-w-[75vw] z-40">
+        <div className="py-20 lg:py-32 flex flex-col justify-center items-center max-w-[75vw] z-40">
           <div
             id="section-1"
             className="p-4 flex flex-col justify-center items-center z-40"
@@ -70,7 +70,7 @@ function Projects() {
                   transition: { duration: 0.6, ease: "easeOut" },
                 },
               }}
-              className="header text-4xl font-semibold text-white"
+              className="header text-2xl md:text-3xl lg:text-4xl font-semibold text-white"
             >
               PROJECTS
             </motion.h1>
@@ -86,7 +86,7 @@ function Projects() {
                   transition: { ease: "easeOut", delay: 0.4 },
                 },
               }}
-              className="underline w-[200px] h-[3px] bg-white mt-3"
+              className="underline w-[150px] lg:w-[200px] h-[3px] bg-white mt-3"
             ></motion.div>
           </div>
           <motion.div
@@ -104,9 +104,9 @@ function Projects() {
                 },
               },
             }}
-            className="flex flex-col mt-16 mb-5"
+            className="flex flex-col lg:mt-16 md:mt-14 mt-10 mb-5"
           >
-            <div className="text-xl text-[#b3b3b3] flex gap-[6vw] max-w-[100vw]">
+            <div className="md:text-lg lg:text-xl text-[#b3b3b3] flex gap-6 lg:gap-[6vw] px-10">
               <button
                 onClick={() => setIsActive("all")}
                 className={`${
@@ -171,7 +171,7 @@ function Projects() {
               },
             }}
           
-            className="flex w-[90vw] h-auto flex-wrap">
+            className="grid w-[90vw] h-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-5 gap-4 place-items-center">
             <ProjectCard
               image={"/p1.png"}
               pName={"Portfolio | Nishith Dubey"}
@@ -189,7 +189,7 @@ function Projects() {
 
             <ProjectCard
               image={"/p3.png"}
-              pName={"Modern UI Music-Academy"}
+              pName={"Modern UI Music-Acad."}
               using={"Nextjs / Accertinity UI"}
               pLink={
                 "https://music-8sbi994m6-nishith-dubeys-projects.vercel.app/"
@@ -201,9 +201,9 @@ function Projects() {
               pName={"SumAI"}
               using={"Nextjs / Saas AI"}
               pLink={
-                ""
+                "https://sumai01.vercel.app"
               }
-              isLive={false}
+              isLive={true}
             />
             <ProjectCard
               image={"/p5.png"}
@@ -213,6 +213,15 @@ function Projects() {
                 "https://imagyn.vercel.app"
               }
               isLive={true}
+            />
+            <ProjectCard
+              image={"/p6.png"}
+              pName={"Kabil - Job Portal"}
+              using={"MERN"}
+              pLink={
+                "https://kabil.vercel.app"
+              }
+              isLive={false}
             />
           </motion.div>
         </div>

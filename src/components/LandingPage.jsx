@@ -52,7 +52,7 @@ function LandingPage() {
         className="main-section w-full h-screen bg-[url('./assets/bg-real.jpg')] bg-cover text-white flex flex-col justify-between items-center"
       >
         <div className="bg-black bg-opacity-80 w-full h-screen flex flex-col justify-center items-center relative">
-          <div className="stars-container">
+          <div className="stars-container opacity-70">
             <div className="shooting-star"></div>
             <div className="shooting-star"></div>
             <div className="shooting-star"></div>
@@ -63,7 +63,7 @@ function LandingPage() {
           <div className="text-center flex flex-col justify-center items-center gap-12 leading-none px-2 sm:p-0  sm:max-w-[79vw] mt-8">
             <h1 className="text-5xl sm:text-6xl">
               Hello, I'm
-              <span className="text-pink-600 font-semibold ml-3">
+              <span className="text-pink-500 font-semibold ml-3">
                 Nishith Dubey
               </span>
             </h1>

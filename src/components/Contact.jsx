@@ -25,6 +25,7 @@ function Contact({ isSticky, isActive }) {
       });
 
       const data = await res.json();
+      console.log(data)
       if (data.success) {
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
@@ -43,7 +44,9 @@ function Contact({ isSticky, isActive }) {
       className="second-section w-full h-[110vh] bg-[url('./assets/bg5.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
     >
       <div className="w-full h-full bg-black bg-opacity-85 flex justify-center items-center">
-        <div className="stars-container mt-10 mr-10">
+        <div className="stars-container opacity-50 absolute left-[30%] mt-40">
+          <div className="shooting-star"></div>
+          <div className="shooting-star"></div>
           <div className="shooting-star"></div>
           <div className="shooting-star"></div>
           <div className="shooting-star"></div>
@@ -54,9 +57,9 @@ function Contact({ isSticky, isActive }) {
             id="section-1"
             className="p-4 flex flex-col justify-center items-center"
           >
-            <h1 className="header text-[40px] font-semibold">CONTACT</h1>
-            <div className="underline w-[150px] h-[4px] bg-white mt-3"></div>
-            <div className="text-[#03c0c4] text-lg font-semibold flex flex-col justify-center items-center mt-10">
+            <h1 className="header text-2xl md:text-[40px] font-semibold">CONTACT</h1>
+            <div className="underline md:w-[150px] w-[100px] h-[2px] md:h-[4px] bg-white mt-3"></div>
+            <div className="text-[#03c0c4] md:text-lg font-semibold flex flex-col justify-center items-center mt-10 text-center">
               <div>Please provide your feedback</div>
               <div>
                 Have a project for me? I'd love to hear from you, give me a
@@ -66,7 +69,7 @@ function Contact({ isSticky, isActive }) {
             <div>
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col items-end w-[40vw] h-auto mt-10 gap-2"
+                className="flex flex-col items-end w-[75vw] md:w-[40vw] h-auto mt-10 gap-2"
               >
                 <input
                   name="name"

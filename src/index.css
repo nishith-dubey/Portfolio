@@ -9,16 +9,16 @@
 .footer-links {
   color: white;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .footer-links.active {
-  color: #ec4899; /* Pink-500 */
+  color: #f5489f; /* Pink-500 */
   border-bottom: 2px solid #ec4899;
 }
 
 .footer-links:hover {
-  color: #ec4899;
+  color: #f43795;
 }
 
 @media (max-width: 500px) {

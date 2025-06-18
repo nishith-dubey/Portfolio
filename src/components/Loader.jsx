@@ -26,11 +26,8 @@ const Loader = () => {
           animate={{ opacity: [0, 1, 0.7, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          Brewing some awesome pixels...
+          Brewing some awesome pixels...☕
         </motion.h1>
-        <p className="text-sm text-gray-400 mt-3 italic">
-          (Even our bugs are taking a coffee break ☕)
-        </p>
       </motion.div>
     </AnimatePresence>
   );
