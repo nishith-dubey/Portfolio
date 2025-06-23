@@ -99,7 +99,7 @@ function About({ isSticky, isActive, isMobile }) {
       id="about"
       className="second-section w-full lg:h-[165vh] bg-[url('./assets/bg2.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
     >
-      <div className={`lg:footer1 lg:fixed ${isSticky} top-0`}>
+      {/* <div className={`lg:footer1 lg:fixed ${isSticky} top-0`}>
         <div className="flex relative z-50 gap-7 bg-black bg-opacity-95 text-lg w-full pl-28 py-4 p-4">
           <div
             className={`md:hidden ${visibleHamburgerMenu} flex-col pl-5 justify-center absolute bg-transparent/85 text-white w-32 h-40 top-[100%] left-50 transition-all duration-300 ease-in-out z-40`}
@@ -175,7 +175,7 @@ function About({ isSticky, isActive, isMobile }) {
           </a>
         </div>
         <div className="w-full h-[2px] bg-cyan-400"></div>
-      </div>
+      </div> */}
       <div className="w-full h-full bg-black bg-opacity-85 flex justify-center items-center">
         <div className="flex flex-col justify-center items-center gap-16 max-w-[75vw]">
           <div

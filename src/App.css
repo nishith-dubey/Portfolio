@@ -23,6 +23,14 @@ body::-webkit-scrollbar {
 .footer-initial {
   display: none;
 }
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 .scrolled {
   display: flex;
   flex-direction: column;
@@ -30,7 +38,18 @@ body::-webkit-scrollbar {
   width: 100%;
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  animation: slideDown 0.5s ease-out;
   z-index: 999;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 .footer::-webkit-progress-bar {
   display: flex;

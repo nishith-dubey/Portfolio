@@ -1,54 +1,85 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import About from "./About";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-function LandingPage() {
-  const [isSticky, setIsSticky] = useState("footer-initial");
-  // const [isHomePage, setIsHomePage] = useState('footer-initial');
-  const [isActive, setIsActive] = useState("home");
-  const [isMobile, setIsMobile] = useState(false);
-  // const [isAboutPage, setIsAboutPage] = useState('footer-initial');
-  // const [isProjectPage, setIsProjectPage] = useState('footer-initial');
-  const [visibleHamburgerMenu, setVisibleHamburgerMenu] = useState("hidden");
-  useEffect(()=>{
-    if(document.documentElement.clientWidth < 500){
-      setIsMobile(true);
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function () {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
     }
-  })
+  };
+};
+
+function LandingPage() {
+  const [navClass, setNavClass] = useState("");
+  const [activeSection, setActiveSection] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
+
   useEffect(() => {
     const handleScroll = () => {
-      let vh = document.documentElement.clientHeight;
-      if(isMobile === true){
-        vh = 286;
-      }
-      // console.log(window.scrollY);
-      if (window.scrollY > 0.91*vh) {
-        setIsSticky("scrolled");
-        // setIsHomePage();
-        // setIsAboutPage();
-        // setIsProjectPage();
-        setIsActive("about");
+      if (!homeRef.current) return;
+
+      const scrollY = window.scrollY;
+      const homeHeight = homeRef.current.offsetHeight;
+      if (scrollY > homeHeight - 90) { // Stick a little before the exact bottom
+        setNavClass("navbar-sticky");
       } else {
-        setIsSticky("footer-initial");
+        setNavClass("");
       }
-      if (window.scrollY > 2.4*vh) {
-        setIsActive("project");
+
+      const sectionPositions = {
+        home: homeRef.current.offsetTop,
+        about: aboutRef.current.offsetTop,
+        projects: projectsRef.current.offsetTop,
+        contact: contactRef.current.offsetTop,
+      };
+      
+      let currentSection = "home";
+      // Check from bottom to top
+      if (scrollY >= sectionPositions.contact - window.innerHeight / 10) {
+        currentSection = "contact";
+      } else if (scrollY >= sectionPositions.projects - window.innerHeight / 10) {
+        currentSection = "projects";
+      } else if (scrollY >= sectionPositions.about - window.innerHeight / 10) {
+        currentSection = "about";
+      } else {
+        currentSection = "home";
       }
-      if (window.scrollY > 3.9*vh) {
-        setIsActive("contact");
-      }
+      setActiveSection(currentSection);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // throttle interval in ms
+    const throttledScrollHandler = throttle(handleScroll, 100);
+
+    window.addEventListener("scroll", throttledScrollHandler);
+    return () => window.removeEventListener("scroll", throttledScrollHandler);
   }, []);
+
+  const navLinks = [
+    { id: "home", label: "HOME" },
+    { id: "about", label: "ABOUT" },
+    { id: "projects", label: "PROJECTS" },
+    { id: "contact", label: "CONTACT" },
+  ];
 
   return (
     <>
       <div
         id="home"
+        ref={homeRef}
         className="main-section w-full h-screen bg-[url('./assets/bg-real.jpg')] bg-cover text-white flex flex-col justify-between items-center"
       >
         <div className="bg-black bg-opacity-80 w-full h-screen flex flex-col justify-center items-center relative">
@@ -67,95 +98,83 @@ function LandingPage() {
                 Nishith Dubey
               </span>
             </h1>
-            <h1 className="sm:text-center text-lg text-[#abbcc7] sm:text-xl flex flex-col items-center justify-center sm:p-0">
+            <h1 className="sm:text-center text-lg text-[#abbcc7] sm:text-xl flex flex-col items-center justify-center sm:p-0 max-w-[75vw]">
               I'm a Full Stack Developer with a serious passion for UI effects,
               animations and creating intuitive user experiences with highly
               scalable backend.
             </h1>
             <div className="checkout-btn border-white/50 border-solid border-2 bg-transparent transition-all ease-in-out duration-500 text-lg z-100 items-center">
-            <a
-              href="#projects"
-              className="p-4 gap-3 flex items-center"
-            >
-              Check out my work
-              <svg
-                className="arrow h-8 w-8 text-white"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <line x1="13" y1="18" x2="19" y2="12" />
-                <line x1="13" y1="6" x2="19" y2="12" />
-              </svg>
-            </a>
+              <a href="#projects" className="p-4 gap-3 flex items-center">
+                Check out my work
+                <svg
+                  className="arrow h-8 w-8 text-white"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <line x1="13" y1="18" x2="19" y2="12" />
+                  <line x1="13" y1="6" x2="19" y2="12" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
-        <div className="footer flex flex-col items-start w-full max-w-[100vw]">
-          <div className="flex gap-7 bg-black bg-opacity-95 text-lg w-full pl-4 md:pl-28 py-4 p-4 relative">
-            <div
-              className={`md:hidden ${visibleHamburgerMenu} flex-col pl-4 justify-center absolute bg-transparent/85 text-white w-32 h-40 bottom-[100%] left-0 transition-all duration-300 ease-in-out`}
-            >
-              <a href="#home" className="mb-2 border-b-[2px] border-pink-500  nk-500 w-14">HOME</a>
-              <a href="#about" className="mb-2 border-b-[2px] border-pink-500 w-[58px]">ABOUT</a>
-              <a href="#projects" className="mb-2 border-b-[2px] border-pink-500 w-[88px]">PROJECTS</a>
-              <a href="#contact" className=" border-b-[2px] border-pink-500 w-[80px]">CONTACT</a>
+
+        <div className={`w-full ${navClass}`}>
+            <div className="footer flex flex-col items-start w-full max-w-[100vw]">
+                <div className="flex gap-7 bg-black bg-opacity-95 text-lg w-full pl-4 md:pl-28 py-4 p-4 relative">
+                    <div
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="cursor-pointer sm:hidden text-white text-4xl z-20"
+                    >
+                        <GiHamburgerMenu />
+                    </div>
+
+                    {isMobileMenuOpen && (
+                        <div
+                            className="md:hidden flex flex-col absolute bg-black/90 backdrop-blur-sm text-white w-40 py-2 rounded-md bottom-full left-2"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.id}
+                                    href={`#${link.id}`}
+                                    className={`p-2 transition-colors ${activeSection === link.id ? "text-pink-500" : ""}`}
+                                >
+                                    {link.label}
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                    
+                    <div className="hidden sm:flex gap-7">
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.id}
+                                href={`#${link.id}`}
+                                className={`footer-links ${activeSection === link.id ? "active" : ""}`}
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+                <div className="w-full h-[2px] bg-cyan-400"></div>
             </div>
-            <div
-              onClick={() => {
-                setVisibleHamburgerMenu((prev) =>
-                  prev === "hidden" ? "flex" : "hidden"
-                );
-              }}
-              className="cursor-pointer sm:hidden text-white text-4xl"
-            >
-              <GiHamburgerMenu />
-            </div>
-            <a
-              href="#home"
-              id="home-link"
-              className="hidden sm:flex footer-links active"
-            >
-              HOME
-            </a>
-            <a
-              href="#about"
-              id="about-link"
-              className="footer-links hidden sm:flex"
-            >
-              ABOUT
-            </a>
-            <a
-              href="#projects"
-              id="projects-link"
-              className="footer-links hidden sm:flex"
-            >
-              PROJECTS
-            </a>
-            <a
-              href="#contact"
-              id="contact-link"
-              className="footer-links hidden sm:flex"
-            >
-              CONTACT
-            </a>
-          </div>
-          <div className="w-full h-[2px] bg-cyan-400"></div>
         </div>
       </div>
 
-      <About isSticky={isSticky} isActive={isActive} isMobile={isMobile} />
+      <div ref={aboutRef}><About /></div>
+      <div ref={projectsRef}><Projects /></div>
+      <div ref={contactRef}><Contact /></div>
 
-      <Projects />
-
-      <Contact />
       <Footer />
     </>
   );

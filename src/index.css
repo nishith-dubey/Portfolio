@@ -27,3 +27,41 @@
     z-index: 50;
   }
 }
+
+/* index.css */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add to your main CSS file, e.g., index.css */
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  animation: slideInDown 0.5s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.footer-links {
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-links.active {
+  color: #ec4899; /* This is Tailwind's pink-500 */
+  border-bottom-color: #ec4899;
+}
