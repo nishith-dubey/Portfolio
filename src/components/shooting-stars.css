@@ -4,12 +4,12 @@
 
 .stars-container {
     position: absolute;
-    width: 70%;
+    width: 60%;
     height: 80%;
     border-radius: 50%;
     overflow: hidden;
     z-index: 0;
-    transform: translateX(-200px) translateY(-245px) rotateZ(40deg);
+    transform: translateX(-240px) translateY(-245px) rotateZ(40deg);
     /* background-color: brown; */
   }
   .shooting-star{

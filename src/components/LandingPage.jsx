@@ -72,10 +72,10 @@ function LandingPage() {
               animations and creating intuitive user experiences with highly
               scalable backend.
             </h1>
-            <div className="checkout-btn border-white/50 border-solid border-2 bg-transparent transition-all ease-in-out duration-500 text-lg z-100">
+            <div className="checkout-btn border-white/50 border-solid border-2 bg-transparent transition-all ease-in-out duration-500 text-lg z-100 items-center">
             <a
               href="#projects"
-              className="p-4 gap-3 flex"
+              className="p-4 gap-3 flex items-center"
             >
               Check out my work
               <svg
