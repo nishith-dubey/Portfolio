@@ -1,5 +1,3 @@
-import React, { useRef, useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
@@ -92,90 +90,12 @@ function About({ isSticky, isActive, isMobile }) {
     if (section3RightInView) section3RightControls.start("visible");
   }, [section3RightInView]);
 
-  const [visibleHamburgerMenu, setVisibleHamburgerMenu] = useState("hidden");
 
   return (
     <div
       id="about"
       className="second-section w-full lg:h-[165vh] bg-[url('./assets/bg2.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
     >
-      {/* <div className={`lg:footer1 lg:fixed ${isSticky} top-0`}>
-        <div className="flex relative z-50 gap-7 bg-black bg-opacity-95 text-lg w-full pl-28 py-4 p-4">
-          <div
-            className={`md:hidden ${visibleHamburgerMenu} flex-col pl-5 justify-center absolute bg-transparent/85 text-white w-32 h-40 top-[100%] left-50 transition-all duration-300 ease-in-out z-40`}
-          >
-            <a
-              href="#home"
-              className="mb-2 border-b-[2px] border-pink-500  nk-500 w-14"
-            >
-              HOME
-            </a>
-            <a
-              href="#about"
-              className="mb-2 border-b-[2px] border-pink-500 w-[58px]"
-            >
-              ABOUT
-            </a>
-            <a
-              href="#projects"
-              className="mb-2 border-b-[2px] border-pink-500 w-[88px]"
-            >
-              PROJECTS
-            </a>
-            <a
-              href="#contact"
-              className=" border-b-[2px] border-pink-500 w-[80px]"
-            >
-              CONTACT
-            </a>
-          </div>
-          <div
-            onClick={() => {
-              setVisibleHamburgerMenu((prev) =>
-                prev === "hidden" ? "flex" : "hidden"
-              );
-            }}
-            className="cursor-pointer sm:hidden text-white text-4xl pl-5"
-          >
-            <GiHamburgerMenu />
-          </div>
-          <a
-            href="#home"
-            id="home-link"
-            className="hidden sm:flex footer-links"
-          >
-            HOME
-          </a>
-          <a
-            href="#about"
-            id="about-link1"
-            className={`hidden sm:flex footer-links ${
-              isActive == "about" && "active"
-            }`}
-          >
-            ABOUT
-          </a>
-          <a
-            href="#projects"
-            id="projects-link1"
-            className={`hidden sm:flex footer-links ${
-              isActive == "project" && "active"
-            }`}
-          >
-            PROJECTS
-          </a>
-          <a
-            href="#contact"
-            id="contact-link1"
-            className={`hidden sm:flex footer-links ${
-              isActive == "contact" && "active"
-            }`}
-          >
-            CONTACT
-          </a>
-        </div>
-        <div className="w-full h-[2px] bg-cyan-400"></div>
-      </div> */}
       <div className="w-full h-full bg-black bg-opacity-85 flex justify-center items-center">
         <div className="flex flex-col justify-center items-center gap-16 max-w-[75vw]">
           <div

@@ -110,19 +110,3 @@ body::-webkit-scrollbar {
   height: 60px;
   filter: grayscale(1) invert(1);
 }
-
-.bar {
-  height: 22px;
-  background-color: #56888a;
-  padding-left: 5px;
-}
-
-.footer1.scrolled { /* Scrolled styles */ }
-.footer1.footer-initial { /* Initial styles */ }
-.nav-link.active { /* Active link styles */ }
-
-/* @media (max-width: 768px) {
-  .navbar {
-    padding: 10px 20px;
-  }
-} */

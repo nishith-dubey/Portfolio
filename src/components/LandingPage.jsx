@@ -34,7 +34,7 @@ function LandingPage() {
 
       const scrollY = window.scrollY;
       const homeHeight = homeRef.current.offsetHeight;
-      if (scrollY > homeHeight - 90) { // Stick a little before the exact bottom
+      if (scrollY > homeHeight-75) { // Stick a little before the exact bottom
         setNavClass("navbar-sticky");
       } else {
         setNavClass("");
@@ -129,7 +129,7 @@ function LandingPage() {
 
         <div className={`w-full ${navClass}`}>
             <div className="footer flex flex-col items-start w-full max-w-[100vw]">
-                <div className="flex gap-7 bg-black bg-opacity-95 text-lg w-full pl-4 md:pl-28 py-4 p-4 relative">
+                <div className="flex gap-7 bg-black bg-opacity-90 text-lg w-full pl-4 md:pl-28 py-4 p-4 relative">
                     <div
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="cursor-pointer sm:hidden text-white text-4xl z-20"
