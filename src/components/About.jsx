@@ -96,8 +96,8 @@ function About({ isSticky, isActive, isMobile }) {
       id="about"
       className="second-section w-full lg:h-[165vh] bg-[url('./assets/bg2.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
     >
-      <div className="w-full h-full bg-black bg-opacity-85 flex justify-center items-center">
-        <div className="flex flex-col justify-center items-center gap-16 max-w-[75vw]">
+      <div className="w-full h-full bg-black bg-opacity-85 flex justify-center items-center py-20">
+        <div className="flex flex-col justify-center items-center gap-6 md:gap-12 lg:gap-16 lg:max-w-[75vw]">
           <div
             id="section-1"
             className="p-4 flex flex-col justify-center items-center"
@@ -136,7 +136,7 @@ function About({ isSticky, isActive, isMobile }) {
           </div>
           <div
             ref={cardsRef}
-            className="flex w-[85vw] lg:w-[80vw] justify-between gap-5 flex-wrap lg:flex-nowrap"
+            className="flex lg:w-[80vw] w-[90vw] justify-between gap-5 flex-wrap lg:flex-nowrap scale-75 md:scale-90 lg:scale-100 items-center"
           >
             {cardData.map((card, index) => (
               <motion.div
@@ -170,7 +170,7 @@ function About({ isSticky, isActive, isMobile }) {
 
           <div
             id="section-3"
-            className="grid grid-cols-1 lg:grid-cols-2 gap-20"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-20 px-4"
           >
             <motion.div
               ref={section3LeftRef}
@@ -199,11 +199,7 @@ function About({ isSticky, isActive, isMobile }) {
                   Work Experience
                 </h1>
                 <h2 className="lg:text-[16px] text-[14px]">
-                  I am a Frontend Development Intern at Beiyo.in, where I
-                  specialize in UI layout and enhancing user experience. Beiyo
-                  is dedicated to making urban living more affordable,
-                  comfortable, and community-driven.
-                  <br /> Previously, I interned at E-Notebook, contributing to a
+                  I interned at E-Notebook, contributing to a
                   platform that helps pharmacy students systematically track
                   chemical reactions, supporting research and drug discovery.
                 </h2>
@@ -223,7 +219,7 @@ function About({ isSticky, isActive, isMobile }) {
               }}
               className="flex items-center justify-center"
             >
-              <div className="grid grid-cols-4 w-[320px] gap-6 mt-5">
+              <div className="grid grid-cols-4 w-[320px] gap-6 mt-5 scale-90 md:scale-100">
                 <div className="html">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

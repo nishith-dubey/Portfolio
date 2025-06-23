@@ -58,7 +58,7 @@ const projectsData = [
     using: "MERN Stack",
     pLink: "https://kabil.vercel.app",
     isLive: false,
-    category: "react", // MERN includes React
+    category: "react",
   },
   {
     id: 7,
@@ -172,7 +172,7 @@ function Projects() {
 
           <motion.div
             layout // This prop animates layout changes (like filtering)
-            className="grid w-[90vw] h-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-5 gap-4 place-items-center"
+            className="grid w-[90vw] h-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-5 gap-4 place-items-center min-h-screen items-start"
           >
             <AnimatePresence>
               {filteredProjects.map((project) => (

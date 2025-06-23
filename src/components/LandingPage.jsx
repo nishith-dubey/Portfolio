@@ -34,7 +34,7 @@ function LandingPage() {
 
       const scrollY = window.scrollY;
       const homeHeight = homeRef.current.offsetHeight;
-      if (scrollY > homeHeight-75) { // Stick a little before the exact bottom
+      if (scrollY > homeHeight-79.5) { // Stick a little before the exact bottom
         setNavClass("navbar-sticky");
       } else {
         setNavClass("");
@@ -83,7 +83,7 @@ function LandingPage() {
         className="main-section w-full h-screen bg-[url('./assets/bg-real.jpg')] bg-cover text-white flex flex-col justify-between items-center"
       >
         <div className="bg-black bg-opacity-80 w-full h-screen flex flex-col justify-center items-center relative">
-          <div className="stars-container opacity-70">
+          <div className="stars-container opacity-60 lg:opacity-70 ml-[300px] mt-[50px] md:ml-0 md:mt-0">
             <div className="shooting-star"></div>
             <div className="shooting-star"></div>
             <div className="shooting-star"></div>
@@ -129,7 +129,7 @@ function LandingPage() {
 
         <div className={`w-full ${navClass}`}>
             <div className="footer flex flex-col items-start w-full max-w-[100vw]">
-                <div className="flex gap-7 bg-black bg-opacity-90 text-lg w-full pl-4 md:pl-28 py-4 p-4 relative">
+                <div className="flex gap-7 bg-black bg-opacity-90 text-lg w-full pl-10 md:pl-28 py-4 p-4 relative">
                     <div
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="cursor-pointer sm:hidden text-white text-4xl z-20"

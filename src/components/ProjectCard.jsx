@@ -20,7 +20,6 @@ function ProjectCard({ image, pName, using, pLink, isLive }) {
           }}
         ></motion.div>
 
-        {/* Title Animation */}
         <motion.h2
           className="absolute text-center w-full mt-10"
           variants={{
@@ -32,7 +31,6 @@ function ProjectCard({ image, pName, using, pLink, isLive }) {
           <div className="text-[#e31b6d] text-xl">{using}</div>
         </motion.h2>
 
-        {/* Visit Button Animation */}
         {isLive ? (
           <motion.a
             href={`${pLink}`}
