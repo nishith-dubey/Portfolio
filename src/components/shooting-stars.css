@@ -9,7 +9,7 @@
     border-radius: 50%;
     overflow: hidden;
     z-index: 0;
-    transform: translateX(-300px) translateY(-220px) rotateZ(40deg);
+    transform: translateX(-200px) translateY(-245px) rotateZ(40deg);
     /* background-color: brown; */
   }
   .shooting-star{

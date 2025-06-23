@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
   transition: transform 0.35s ease-in-out;
 }
 .checkout-btn:hover {
-  transition: ease-in 0.2s;
+  transition: all ease-in-out 0.2s;
   border: solid 2px aqua;
 }
 .checkout-btn:hover .arrow {

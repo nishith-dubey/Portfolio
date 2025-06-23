@@ -52,7 +52,7 @@ function LandingPage() {
         className="main-section w-full h-screen bg-[url('./assets/bg-real.jpg')] bg-cover text-white flex flex-col justify-between items-center"
       >
         <div className="bg-black bg-opacity-80 w-full h-screen flex flex-col justify-center items-center relative">
-          <div className="stars-container opacity-70">
+          <div className="stars-container opacity-70 border">
             <div className="shooting-star"></div>
             <div className="shooting-star"></div>
             <div className="shooting-star"></div>
@@ -72,9 +72,10 @@ function LandingPage() {
               animations and creating intuitive user experiences with highly
               scalable backend.
             </h1>
+            <div className="checkout-btn border-white/50 border-solid border-2 bg-transparent transition-all ease-in-out duration-500 text-lg z-100">
             <a
               href="#projects"
-              className="checkout-btn border-white/50 border-solid border-2 bg-transparent p-4 text-lg flex gap-3 z-100"
+              className="p-4 gap-3 flex"
             >
               Check out my work
               <svg
@@ -94,6 +95,7 @@ function LandingPage() {
                 <line x1="13" y1="6" x2="19" y2="12" />
               </svg>
             </a>
+            </div>
           </div>
         </div>
         <div className="footer flex flex-col items-start w-full max-w-[100vw]">
