@@ -52,7 +52,7 @@ function LandingPage() {
         className="main-section w-full h-screen bg-[url('./assets/bg-real.jpg')] bg-cover text-white flex flex-col justify-between items-center"
       >
         <div className="bg-black bg-opacity-80 w-full h-screen flex flex-col justify-center items-center relative">
-          <div className="stars-container opacity-70 border">
+          <div className="stars-container opacity-70">
             <div className="shooting-star"></div>
             <div className="shooting-star"></div>
             <div className="shooting-star"></div>
