@@ -131,7 +131,7 @@ function Projects() {
   return (
     <div
       id="projects"
-      className="flex flex-col antialiased bg-[url('./assets/bg04.jpg')] bg-cover bg-fixed dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative w-full overflow-x-hidden"
+      className="flex flex-col antialiased bg-[url('./assets/bg04.webp')] bg-cover bg-fixed dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative w-full overflow-x-hidden"
     >
       <div className="w-full h-full bg-black/90 flex justify-center items-center">
         <motion.div

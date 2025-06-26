@@ -94,7 +94,7 @@ function About({ isSticky, isActive, isMobile }) {
   return (
     <div
       id="about"
-      className="second-section w-full lg:h-[165vh] bg-[url('./assets/bg2.jpg')] bg-cover bg-fixed text-white flex flex-col justify-center items-center"
+      className="second-section w-full lg:h-[165vh] bg-[url('./assets/bg2.webp')] bg-cover bg-fixed text-white flex flex-col justify-center items-center bg-black"
     >
       <div className="w-full h-full bg-black bg-opacity-85 flex justify-center items-center py-20">
         <div className="flex flex-col justify-center items-center gap-6 md:gap-12 lg:gap-16 lg:max-w-[75vw]">

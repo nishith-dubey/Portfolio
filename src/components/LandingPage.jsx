@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
-import About from "./About";
-import Projects from "./Projects";
-import Contact from "./Contact";
+import React, { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Footer from "./Footer";
 import { GiHamburgerMenu } from "react-icons/gi";
+
+const About = lazy(() => import('./About'));
+const Projects = lazy(() => import('./Projects'));
+const Contact = lazy(() => import('./Contact'));
 
 const throttle = (func, limit) => {
   let inThrottle;
@@ -80,7 +81,7 @@ function LandingPage() {
       <div
         id="home"
         ref={homeRef}
-        className="main-section w-full h-screen bg-[url('./assets/bg-real.jpg')] bg-cover text-white flex flex-col justify-between items-center"
+        className="main-section w-full h-screen bg-[url('./assets/bg-real.webp')] bg-cover text-white flex flex-col justify-between items-center bg-black"
       >
         <div className="bg-black bg-opacity-80 w-full h-screen flex flex-col justify-center items-center relative">
           <div className="stars-container opacity-60 lg:opacity-70 ml-[300px] mt-[50px] md:ml-0 md:mt-0">
@@ -128,7 +129,7 @@ function LandingPage() {
         </div>
 
         <div className={`w-full ${navClass}`}>
-            <div className="footer flex flex-col items-start w-full max-w-[100vw]">
+            <div className="flex flex-col items-start w-full max-w-[100vw]">
                 <div className="flex gap-7 bg-black bg-opacity-90 text-lg w-full pl-10 md:pl-28 py-4 p-4 relative">
                     <div
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -171,9 +172,11 @@ function LandingPage() {
         </div>
       </div>
 
-      <div ref={aboutRef}><About /></div>
-      <div ref={projectsRef}><Projects /></div>
-      <div ref={contactRef}><Contact /></div>
+      <Suspense fallback={<div>Loading...</div>}>
+          <div ref={aboutRef} id="about"><About /></div>
+          <div ref={projectsRef} id="projects"><Projects /></div>
+          <div ref={contactRef} id="contact"><Contact /></div>
+      </Suspense>
 
       <Footer />
     </>

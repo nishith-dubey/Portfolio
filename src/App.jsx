@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     // Wait for the whole window to load (including images)
     const handleLoad = () => {
-      setTimeout(() => setLoading(false), 1000); // simulate 1s fade-out
+      setTimeout(() => setLoading(false), 200); // simulate 1s fade-out
     };
   
     if (document.readyState === "complete") {

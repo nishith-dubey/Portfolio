@@ -48,9 +48,6 @@ function Footer() {
             className="w-12 h-12 flex items-center justify-center rounded-lg transition-all duration-300 group hover:bg-[#FEA116]"
           >
             <div className="leetcode relative">
-              <div className="bg-transparent absolute bottom-[170%] w-20 -right-[100%] rounded-xl hidden group-hover:flex">
-                <img src="2550.gif" alt="" />
-              </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 enable-background="new 0 0 24 24"
