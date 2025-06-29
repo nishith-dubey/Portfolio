@@ -1,103 +1,76 @@
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
 
+// I've removed the `delay` property as we'll handle staggering with variants.
 const cardData = [
   {
     img: "https://cdn-icons-png.flaticon.com/128/159/159085.png",
     title: "Fast",
     desc: "Fast load times and lag free interaction, my highest priority.",
-    delay: 0,
   },
   {
     img: "https://www.svgrepo.com/show/21810/tablet-and-laptop.svg",
     title: "Responsive",
     desc: "My layouts will work on any device, big or small.",
-    delay: 0.2,
   },
   {
     img: "https://cdn-icons-png.flaticon.com/128/3355/3355192.png",
     title: "Intuitive",
-    desc: "Strong preference for easy to use, intuitive UX/UI",
-    delay: 0.4,
+    desc: "Strong preference for easy to use, intuitive UX/UI.",
   },
   {
     img: "https://cdn-icons-png.flaticon.com/128/7837/7837411.png",
     title: "Dynamic",
     desc: "Websites don't have to be static, I love making pages come to life.",
-    delay: 0.6,
   },
 ];
 
+// Variants for the container of the cards to orchestrate animations
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      // Stagger the children's animations by 0.2 seconds
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+// Variants for each individual card
+const cardVariants = {
+  hidden: { opacity: 0, rotateY: 90 },
+  visible: {
+    opacity: 1,
+    rotateY: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+// We don't need `useAnimation` or `useEffect` for this anymore!
 function About({ isSticky, isActive, isMobile }) {
-  // const [ref, isInView] = useInView({ threshold: 0.5 });
-
-  // const [ref, inView] = useInView({
-  // threshold: 0.5, // 0.5 = 50% of the element must be visible
-  // triggerOnce: true, // only trigger once
-  // });
-
-  const [headingRef, headingInView] = useInView({
+  // You can keep separate refs if you want elements to trigger at different scroll points.
+  const triggerOptions = {
     triggerOnce: true,
-    rootMargin: "-50% 0px",
-    threshold: 0,
-  });
-  const [underlineRef, underlineInView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-50% 0px",
-    threshold: 0,
-  });
-  const [cardsRef, cardsInView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-50% 0px",
-    threshold: 0,
-  });
+    rootMargin: "-200px 0px", // Animate when element is 200px into the viewport
+  };
 
-  const [section3LeftRef, section3LeftInView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-50% 0px",
-    threshold: 0,
-  });
-  const [section3RightRef, section3RightInView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-50% 0px",
-    threshold: 0,
-  });
-
-  const headingControls = useAnimation();
-  const underlineControls = useAnimation();
-  const cardControls = useAnimation();
-  const section3LeftControls = useAnimation();
-  const section3RightControls = useAnimation();
-
-  useEffect(() => {
-    if (headingInView) headingControls.start("visible");
-  }, [headingInView]);
-
-  useEffect(() => {
-    if (underlineInView) underlineControls.start("visible");
-  }, [underlineInView]);
-
-  useEffect(() => {
-    if (cardsInView) cardControls.start("visible");
-  }, [cardsInView]);
-
-  useEffect(() => {
-    if (section3LeftInView) section3LeftControls.start("visible");
-  }, [section3LeftInView]);
-
-  useEffect(() => {
-    if (section3RightInView) section3RightControls.start("visible");
-  }, [section3RightInView]);
-
+  const [headingRef, headingInView] = useInView(triggerOptions);
+  const [underlineRef, underlineInView] = useInView(triggerOptions);
+  const [cardsRef, cardsInView] = useInView(triggerOptions);
+  const [section3LeftRef, section3LeftInView] = useInView(triggerOptions);
+  const [section3RightRef, section3RightInView] = useInView(triggerOptions);
 
   return (
     <div
       id="about"
-      className="second-section w-full lg:h-[165vh] bg-[url('./assets/bg2.webp')] bg-cover bg-fixed text-white flex flex-col justify-center items-center bg-black"
+      className="second-section w-full min-h-screen bg-[url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=60')] bg-cover bg-fixed text-white flex flex-col justify-center items-center bg-black"
     >
       <div className="w-full h-full bg-black bg-opacity-85 flex justify-center items-center py-20">
-        <div className="flex flex-col justify-center items-center gap-6 md:gap-12 lg:gap-16 lg:max-w-[75vw]">
+        <div className="flex flex-col justify-center items-center gap-12 lg:gap-16 lg:max-w-[80vw]">
           <div
             id="section-1"
             className="p-4 flex flex-col justify-center items-center"
@@ -105,7 +78,8 @@ function About({ isSticky, isActive, isMobile }) {
             <motion.h1
               ref={headingRef}
               initial="hidden"
-              animate={headingControls}
+              // Animate directly based on the inView boolean
+              animate={headingInView ? "visible" : "hidden"}
               variants={{
                 hidden: { opacity: 0, x: -100 },
                 visible: {
@@ -114,7 +88,7 @@ function About({ isSticky, isActive, isMobile }) {
                   transition: { duration: 0.6, ease: "easeOut" },
                 },
               }}
-              className="header text-3xl lg:text-5xl font-semibold lg:mt-0 mt-10"
+              className="header text-3xl lg:text-5xl font-semibold text-center"
             >
               My Websites are
             </motion.h1>
@@ -122,71 +96,65 @@ function About({ isSticky, isActive, isMobile }) {
             <motion.div
               ref={underlineRef}
               initial="hidden"
-              animate={underlineControls}
+              animate={underlineInView ? "visible" : "hidden"}
+              variants={{
+                hidden: { scaleX: 0 },
+                visible: {
+                  scaleX: 1,
+                  transition: { duration: 0.8, ease: "easeOut", delay: 0.3 },
+                },
+              }}
+              className="underline w-[310px] h-[5px] bg-pink-500 mt-3 origin-left"
+            />
+          </div>
+
+          <motion.div
+            ref={cardsRef}
+            variants={containerVariants}
+            initial="hidden"
+            animate={cardsInView ? "visible" : "hidden"}
+            className="flex lg:w-full w-[90vw] justify-center gap-8 flex-wrap"
+          >
+            {cardData.map((card, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                className="flex flex-col items-center justify-start gap-4 w-[150px] lg:w-[250px]"
+              >
+                <div className="hexagon">
+                  <img src={card.img} className="icon absolute z-30" />
+                </div>
+                <div className="flex flex-col justify-center items-center gap-1 text-center">
+                  <h1 className="text-2xl font-semibold">{card.title}</h1>
+                  <h3 className="text-gray-400">{card.desc}</h3>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <div
+            id="section-3"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 px-4 items-center"
+          >
+            <motion.div
+              ref={section3LeftRef}
+              initial="hidden"
+              animate={section3LeftInView ? "visible" : "hidden"}
               variants={{
                 hidden: { opacity: 0, x: -100 },
                 visible: {
                   opacity: 1,
                   x: 0,
-                  transition: { duration: 0.6, ease: "easeOut", delay: 0.2 },
+                  transition: { duration: 0.6, ease: "easeOut" },
                 },
               }}
-              className="underline w-[210px] h-[4px] bg-white mt-3 origin-left"
-            />
-          </div>
-          <div
-            ref={cardsRef}
-            className="flex lg:w-[80vw] w-[90vw] justify-between gap-5 flex-wrap lg:flex-nowrap scale-75 md:scale-90 lg:scale-100 items-center"
-          >
-            {cardData.map((card, index) => (
-              <motion.div
-                key={index}
-                initial="hidden"
-                animate={cardControls}
-                variants={{
-                  hidden: { opacity: 0, rotateY: 90 },
-                  visible: {
-                    opacity: 1,
-                    rotateY: 0,
-                    transition: {
-                      duration: 0.6,
-                      delay: card.delay,
-                      ease: "easeOut",
-                    },
-                  },
-                }}
-                className="flex flex-col items-center justify-center gap-3 w-[30vw] lg:w-auto"
-              >
-                <div className="hexagon">
-                  <img src={card.img} className="icon absolute z-30" />
-                </div>
-                <div className="flex flex-col justify-center items-center gap-1 max-w-80">
-                  <h1 className="text-2xl font-semibold">{card.title}</h1>
-                  <h3 className="text-gray-400 text-center">{card.desc}</h3>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div
-            id="section-3"
-            className="grid grid-cols-1 lg:grid-cols-2 gap-20 px-4"
-          >
-            <motion.div
-              ref={section3LeftRef}
-              initial="hidden"
-              animate={section3LeftControls}
-              variants={{
-                hidden: { opacity: 0, x: -100 },
-                visible: { opacity: 1, x: 0 },
-              }}
-              className="flex flex-col gap-8 lg:gap-4 justify-center items-center"
+              className="flex flex-col gap-8 justify-center"
             >
-              <div className="flex flex-col justify-center items-center text-center gap-3 max-w-[500px]">
+              <div className="flex flex-col text-center gap-2">
                 <h1 className="font-bold text-3xl text-fuchsia-600">
                   More about myself
                 </h1>
-                <h2 className="lg:text-[16px] text-[14px]">
+                <h2 className="lg:text-lg text-base">
                   I'm an undergraduate in B-Tech Computer Science and
                   Engineering from Shri GS Institute of Technology & Science,
                   Indore. Currently I'm working on MERN stack and Django but
@@ -194,21 +162,22 @@ function About({ isSticky, isActive, isMobile }) {
                   Artificial Intelligence.
                 </h2>
               </div>
-              <div className="flex flex-col justify-center items-center text-center gap-3 max-w-[500px]">
+              <div className="flex flex-col text-center gap-2">
                 <h1 className="font-bold text-3xl text-pink-500">
                   Work Experience
                 </h1>
-                <h2 className="lg:text-[16px] text-[14px]">
-                  I interned at E-Notebook, contributing to a
-                  platform that helps pharmacy students systematically track
-                  chemical reactions, supporting research and drug discovery.
+                <h2 className="lg:text-lg text-base">
+                  I interned at E-Notebook, contributing to a platform that
+                  helps pharmacy students systematically track chemical
+                  reactions, supporting research and drug discovery.
                 </h2>
               </div>
             </motion.div>
+
             <motion.div
               ref={section3RightRef}
               initial="hidden"
-              animate={section3RightControls}
+              animate={section3RightInView ? "visible" : "hidden"}
               variants={{
                 hidden: { opacity: 0, x: 100 },
                 visible: {
@@ -219,6 +188,12 @@ function About({ isSticky, isActive, isMobile }) {
               }}
               className="flex items-center justify-center"
             >
+              {/* Added content here so the animation is visible
+              <img
+                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=60"
+                alt="Code on a screen"
+                className="rounded-lg shadow-lg object-cover w-full h-auto max-w-md"
+              /> */}
               <div className="grid grid-cols-4 w-[320px] gap-6 mt-5 scale-90 md:scale-100">
                 <div className="html">
                   <svg

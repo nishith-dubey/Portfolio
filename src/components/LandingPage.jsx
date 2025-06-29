@@ -92,10 +92,10 @@ function LandingPage() {
             <div className="shooting-star"></div>
             <div className="shooting-star"></div>
           </div>
-          <div className="text-center flex flex-col justify-center items-center gap-12 leading-none px-2 sm:p-0  sm:max-w-[79vw] mt-8">
-            <h1 className="text-5xl sm:text-6xl">
-              Hello, I'm
-              <span className="text-pink-500 font-semibold ml-3">
+          <div className="text-center flex flex-col justify-center items-center gap-12 leading-none px-2 sm:p-0 sm:max-w-[79vw] mt-8 z-[100]">
+            <h1 className="">
+              <span className="text-4xl sm:text-6xl sm:inline block">Hello, I'm</span>
+              <span className="text-pink-500 font-semibold ml-3 text-5xl sm:text-6xl">
                 Nishith Dubey
               </span>
             </h1>
