@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Footer from "./Footer";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { AnimatedText } from "./AnimatedText";
 
-const About = lazy(() => import('./About'));
-const Projects = lazy(() => import('./Projects'));
-const Contact = lazy(() => import('./Contact'));
+const About = lazy(() => import("./About"));
+const Projects = lazy(() => import("./Projects"));
+const Contact = lazy(() => import("./Contact"));
 
 const throttle = (func, limit) => {
   let inThrottle;
@@ -35,7 +36,8 @@ function LandingPage() {
 
       const scrollY = window.scrollY;
       const homeHeight = homeRef.current.offsetHeight;
-      if (scrollY > homeHeight-79.5) { // Stick a little before the exact bottom
+      if (scrollY > homeHeight - 79.5) {
+        // Stick a little before the exact bottom
         setNavClass("navbar-sticky");
       } else {
         setNavClass("");
@@ -47,12 +49,15 @@ function LandingPage() {
         projects: projectsRef.current.offsetTop,
         contact: contactRef.current.offsetTop,
       };
-      
+
       let currentSection = "home";
       // Check from bottom to top
       if (scrollY >= sectionPositions.contact - window.innerHeight / 10) {
         currentSection = "contact";
-      } else if (scrollY >= sectionPositions.projects - window.innerHeight / 10) {
+      } else if (
+        scrollY >=
+        sectionPositions.projects - window.innerHeight / 10
+      ) {
         currentSection = "projects";
       } else if (scrollY >= sectionPositions.about - window.innerHeight / 10) {
         currentSection = "about";
@@ -93,11 +98,12 @@ function LandingPage() {
             <div className="shooting-star"></div>
           </div>
           <div className="text-center flex flex-col justify-center items-center gap-12 leading-none px-2 sm:p-0 sm:max-w-[79vw] mt-8 z-[100]">
-            <h1 className="">
+            <h1 className="flex flex-col sm:flex-row items-center justify-center flex-wrap">
               <span className="text-4xl sm:text-6xl sm:inline block">Hello, I'm</span>
-              <span className="text-pink-500 font-semibold ml-3 text-5xl sm:text-6xl">
-                Nishith Dubey
-              </span>
+              <AnimatedText
+                text="Nishith Dubey"
+                className="text-pink-500 font-semibold sm:ml-3 text-5xl sm:text-6xl py-2"
+              />
             </h1>
             <h1 className="sm:text-center text-lg text-[#abbcc7] sm:text-xl flex flex-col items-center justify-center sm:p-0 max-w-[75vw]">
               I'm a Full Stack Developer with a serious passion for UI effects,
@@ -129,53 +135,63 @@ function LandingPage() {
         </div>
 
         <div className={`w-full ${navClass}`}>
-            <div className="flex flex-col items-start w-full max-w-[100vw]">
-                <div className="flex gap-7 bg-black bg-opacity-90 text-lg w-full pl-10 md:pl-28 py-4 p-4 relative">
-                    <div
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="cursor-pointer sm:hidden text-white text-4xl z-20"
-                    >
-                        <GiHamburgerMenu />
-                    </div>
+          <div className="flex flex-col items-start w-full max-w-[100vw]">
+            <div className="flex gap-7 bg-black bg-opacity-90 text-lg w-full pl-10 md:pl-28 py-4 p-4 relative">
+              <div
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="cursor-pointer sm:hidden text-white text-4xl z-20"
+              >
+                <GiHamburgerMenu />
+              </div>
 
-                    {isMobileMenuOpen && (
-                        <div
-                            className="md:hidden flex flex-col absolute bg-black/90 backdrop-blur-sm text-white w-40 py-2 rounded-md bottom-full left-2"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.id}
-                                    href={`#${link.id}`}
-                                    className={`p-2 transition-colors ${activeSection === link.id ? "text-pink-500" : ""}`}
-                                >
-                                    {link.label}
-                                </a>
-                            ))}
-                        </div>
-                    )}
-                    
-                    <div className="hidden sm:flex gap-7">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.id}
-                                href={`#${link.id}`}
-                                className={`footer-links ${activeSection === link.id ? "active" : ""}`}
-                            >
-                                {link.label}
-                            </a>
-                        ))}
-                    </div>
+              {isMobileMenuOpen && (
+                <div
+                  className="md:hidden flex flex-col absolute bg-black/90 backdrop-blur-sm text-white w-40 py-2 rounded-md bottom-full left-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.id}
+                      href={`#${link.id}`}
+                      className={`p-2 transition-colors ${
+                        activeSection === link.id ? "text-pink-500" : ""
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  ))}
                 </div>
-                <div className="w-full h-[2px] bg-cyan-400"></div>
+              )}
+
+              <div className="hidden sm:flex gap-7">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.id}
+                    href={`#${link.id}`}
+                    className={`footer-links ${
+                      activeSection === link.id ? "active" : ""
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
+            <div className="w-full h-[2px] bg-cyan-400"></div>
+          </div>
         </div>
       </div>
 
       <Suspense fallback={<div>Loading...</div>}>
-          <div ref={aboutRef} id="about"><About /></div>
-          <div ref={projectsRef} id="projects"><Projects /></div>
-          <div ref={contactRef} id="contact"><Contact /></div>
+        <div ref={aboutRef} id="about">
+          <About />
+        </div>
+        <div ref={projectsRef} id="projects">
+          <Projects />
+        </div>
+        <div ref={contactRef} id="contact">
+          <Contact />
+        </div>
       </Suspense>
 
       <Footer />
