@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import {Link} from 'react-router-dom'
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function ProjectCard({ image, pName, using, pLink, isLive }) {
+  const [isLoaded, setIsLoaded] = useState(false);
   return (
     <>
       <motion.div
@@ -10,7 +12,19 @@ function ProjectCard({ image, pName, using, pLink, isLive }) {
         initial="initial"
         whileHover="hover"
       >
-        <img src={`${image}`} className="absolute w-full h-full" />
+        {!isLoaded && (
+          <Skeleton
+            className="absolute w-full h-full"
+            baseColor="#2e2e2e"
+            highlightColor="#444"
+          />
+        )}
+        <img
+          src={`${image}`}
+          className="absolute w-full h-full"
+          loading="lazy"
+          onLoad={() => setIsLoaded(true)}
+        />
         {/* Cover Overlay */}
         <motion.div
           className="border-[2px] rounded-lg absolute inset-0 bg-black/85"
