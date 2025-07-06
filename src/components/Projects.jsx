@@ -69,6 +69,24 @@ const projectsData = [
     isLive: true,
     category: "node", // MERN includes Node.js
   },
+  {
+    id: 8,
+    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751812295/Screenshot_2025-07-06_200117_uy8lqj.png",
+    pName: "Code Together",
+    using: "React / Nodejs / Socket.io",
+    pLink: "https://code.nishith.store",
+    isLive: true,
+    category: "node", // MERN includes Node.js
+  },
+  {
+    id: 9,
+    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751812301/Screenshot_2025-07-06_200002_jvuljq.png",
+    pName: "Map (Fun Project)",
+    using: "Ejs / Nodejs / Socket.io",
+    pLink: "https://map.nishith.store",
+    isLive: true,
+    category: "node", // MERN includes Node.js
+  },
 ];
 
 // --- 2. Dynamic Filter Buttons: Makes adding/removing filters easier ---

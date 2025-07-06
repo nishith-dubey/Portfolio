@@ -53,6 +53,7 @@ function ProjectCard({ image, pName, using, pLink, isLive }) {
               initial: { y: 20, opacity: 0 },
               hover: { y: 0, opacity: 1 },
             }}
+            target="_blank" rel="noopener noreferrer"
           >
             Visit
           </motion.a>
