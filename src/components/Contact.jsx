@@ -41,7 +41,7 @@ function Contact({ isSticky, isActive }) {
   return (
     <div
       id="contact"
-      className="second-section w-full h-[110vh] bg-[url('./assets/bg5.webp')] bg-cover bg-fixed text-white flex flex-col justify-center items-center bg-black"
+      className="second-section w-full h-[110vh] bg-[url('https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882520/bg5_swocs5.webp')] bg-cover bg-fixed text-white flex flex-col justify-center items-center bg-black"
     >
       <div className="w-full h-full bg-black bg-opacity-85 flex justify-center items-center">
         <div className="stars-container opacity-50 absolute left-[30%] mt-40">

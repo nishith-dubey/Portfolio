@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 const projectsData = [
   {
     id: 1,
-    image: "/p1.png",
+    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882265/p1_iwuqoc.png",
     pName: "Portfolio | Nishith Dubey",
     using: "React",
     pLink: "https://nishith-dubey.vercel.app",
@@ -17,7 +17,7 @@ const projectsData = [
   },
   {
     id: 2,
-    image: "/p2.png",
+    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882265/p2_t7xzwc.png",
     pName: "Machine Yard",
     using: "HTML / TailwindCSS / Node.js",
     pLink: "https://machine-yard.vercel.app",
@@ -26,7 +26,7 @@ const projectsData = [
   },
   {
     id: 3,
-    image: "/p3.png",
+    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882262/p3_rqlkja.png",
     pName: "Modern UI Music-Acad.",
     using: "Next.js / Aceternity UI",
     pLink: "https://music-8sbi994m6-nishith-dubeys-projects.vercel.app/",
@@ -35,7 +35,7 @@ const projectsData = [
   },
   {
     id: 4,
-    image: "/p4.png",
+    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882262/p4_jwfs9a.png",
     pName: "SumAI",
     using: "Next.js / Saas AI",
     pLink: "https://sumai01.vercel.app",
@@ -44,7 +44,7 @@ const projectsData = [
   },
   {
     id: 5,
-    image: "/p5.png",
+    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882264/p5_zk17vi.png",
     pName: "imagyn",
     using: "React.js / Node.js / Saas AI",
     pLink: "https://imagyn.vercel.app",
@@ -53,7 +53,7 @@ const projectsData = [
   },
   {
     id: 6,
-    image: "/p6.png",
+    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882262/p6_kysexi.png",
     pName: "Kabil - Job Portal",
     using: "MERN Stack",
     pLink: "https://kabil.vercel.app",
@@ -62,7 +62,7 @@ const projectsData = [
   },
   {
     id: 7,
-    image: "/p7.png",
+    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882265/p7_wezw6a.png",
     pName: "Bookish - Book Review Platform",
     using: "MERN Stack",
     pLink: "https://bookish01.vercel.app",
@@ -149,7 +149,7 @@ function Projects() {
   return (
     <div
       id="projects"
-      className="flex flex-col antialiased bg-[url('./assets/bg04.webp')] bg-cover bg-fixed dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative w-full overflow-x-hidden"
+      className="flex flex-col antialiased bg-[url('https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882519/bg04_t8tkdt.webp')] bg-cover bg-fixed dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative w-full overflow-x-hidden"
     >
       <div className="w-full h-full bg-black/90 flex justify-center items-center">
         <motion.div
