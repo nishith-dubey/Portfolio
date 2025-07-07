@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Footer from "./Footer";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AnimatedText } from "./AnimatedText";
+import { ArrowRight } from "lucide-react";
 
 const About = lazy(() => import("./About"));
 const Projects = lazy(() => import("./Projects"));
@@ -99,7 +100,9 @@ function LandingPage() {
           </div>
           <div className="text-center flex flex-col justify-center items-center gap-12 leading-none px-2 sm:p-0 sm:max-w-[79vw] mt-8 z-[100]">
             <h1 className="flex flex-col sm:flex-row items-center justify-center flex-wrap">
-              <span className="text-4xl sm:text-6xl sm:inline block">Hello, I'm</span>
+              <span className="text-4xl sm:text-6xl sm:inline block">
+                Hello, I'm
+              </span>
               <AnimatedText
                 text="Nishith Dubey"
                 className="text-pink-500 font-semibold sm:ml-3 text-5xl sm:text-6xl py-2"
@@ -146,20 +149,27 @@ function LandingPage() {
 
               {isMobileMenuOpen && (
                 <div
-                  className="md:hidden flex flex-col absolute bg-black/90 backdrop-blur-sm text-white w-40 py-2 rounded-md bottom-full left-2"
+                  className="md:hidden flex flex-col absolute bg-black/70 backdrop-blur-sm text-white w-40 py-2 rounded-md bottom-full left-2 z-[100]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {navLinks.map((link) => (
                     <a
                       key={link.id}
                       href={`#${link.id}`}
-                      className={`p-2 transition-colors ${
+                      className={`p-2 transition-colors hover:text-pink-500 ${
                         activeSection === link.id ? "text-pink-500" : ""
                       }`}
                     >
                       {link.label}
                     </a>
                   ))}
+                  <a
+                    href="/learn"
+                    className=" right-20 text-xl flex gap-1 items-center p-2 hover:bg-white hover:text-black duration-200 ease-in-out transition-all rounded-sm"
+                  >
+                    <span>Learn</span>
+                    <ArrowRight className="-rotate-45" />
+                  </a>
                 </div>
               )}
 
@@ -176,6 +186,13 @@ function LandingPage() {
                   </a>
                 ))}
               </div>
+              <a
+                href="/learn"
+                className="absolute right-20 text-xl font-semibold sm:flex gap-1 items-center py-2 px-4 hover:bg-white hover:text-black duration-200 ease-in-out transition-all rounded-sm -translate-y-[5px] hidden"
+              >
+                <span>Learn</span>
+                <ArrowRight className="-rotate-45" />
+              </a>
             </div>
             <div className="w-full h-[2px] bg-cyan-400"></div>
           </div>
