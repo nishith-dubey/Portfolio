@@ -1,11 +1,21 @@
-// tailwind.config.js
-module.exports = {
-  darkMode: 'class', // IMPORTANT for class-based dark mode
-  content: ['./src/**/*.{js,jsx,ts,tsx}'], // adjust this to match your structure
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: 'class', // Make sure dark mode is enabled
   theme: {
     extend: {
-      backgroundImage: {
-        'radial-blue': 'radial-gradient(circle, rgba(29,78,216,0.15), transparent 60%)',
+      // Add the animation keyframes here
+      animation: {
+        aurora: 'aurora 8s ease-in-out infinite',
+      },
+      keyframes: {
+        aurora: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
       },
     },
   },

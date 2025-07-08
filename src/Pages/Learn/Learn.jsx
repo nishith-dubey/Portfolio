@@ -19,28 +19,16 @@ const topics = [
     href: "/learn/web-dev",
   },
   {
-    icon: Code,
-    title: "React & Next.js",
-    description: "Build dynamic, high-performance web applications with the most popular frameworks.",
-    href: "/learn/react",
-  },
-  {
-    icon: Palette,
-    title: "UI/UX & Libraries",
-    description: "Master Tailwind CSS, Framer Motion, and other tools to create stunning user interfaces.",
-    href: "/learn/ui-ux",
+    icon: Database,
+    title: "Data Structures & Algos",
+    description: "Strengthen your problem-solving skills with essential computer science concepts.",
+    href: "/learn/dsa",
   },
   {
     icon: BrainCircuit,
     title: "AI & Machine Learning",
     description: "Dive into the world of artificial intelligence, from basic concepts to advanced models.",
     href: "/learn/ai-ml",
-  },
-  {
-    icon: Database,
-    title: "Data Structures & Algos",
-    description: "Strengthen your problem-solving skills with essential computer science concepts.",
-    href: "/learn/dsa",
   },
   {
     icon: TerminalSquare,

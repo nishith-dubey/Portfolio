@@ -16,7 +16,6 @@ export const TopicCard = ({ icon: Icon, title, description, href }) => {
           <Icon className="text-blue-300" size={32} />
         </div>
         <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-gray-400 leading-relaxed">{description}</p>
       </div>
     </Link>
   );
