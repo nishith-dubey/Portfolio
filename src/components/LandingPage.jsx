@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, lazy, Suspense } from "react";
+import { useEffect, useState, useRef, lazy, Suspense } from "react";
 import Footer from "./Footer";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AnimatedText } from "./AnimatedText";
@@ -87,7 +87,7 @@ function LandingPage() {
       <div
         id="home"
         ref={homeRef}
-        className="main-section w-full h-screen bg-[url('https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882521/bg-real_dub3y3.webp')] bg-cover text-white flex flex-col justify-between items-center bg-black bg-fixed"
+        className="main-section w-full h-screen bg-[url('./assets/bg-real.webp')] bg-cover text-white flex flex-col justify-between items-center bg-black bg-fixed"
       >
         <div className="bg-black bg-opacity-80 w-full h-screen flex flex-col justify-center items-center relative">
           <div className="stars-container opacity-60 lg:opacity-70 ml-[300px] mt-[50px] md:ml-0 md:mt-0">
