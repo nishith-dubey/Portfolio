@@ -1,21 +1,42 @@
 import { Link } from "react-router-dom";
 
-export const TopicCard = ({ icon: Icon, title, description, href }) => {
+export const TopicCard = ({ title, href, img }) => {
   return (
-    <Link
-      to={href}
-      className="
-        group relative p-8 rounded-2xl bg-white/5 border border-white/10
-        transform-gpu transition-all duration-300
-        hover:-translate-y-2 hover:bg-white/10 hover:shadow-2xl hover:shadow-blue-900/50
+    <Link to={href} className="group relative block">
+      {/* Main Card */}
+      <div
+        className="
+        relative p-6 rounded-xl 
+        bg-white/5 backdrop-blur-sm border border-white/10
+        transition-all duration-500 ease-out
+        hover:bg-white/10 hover:border-white/20
+        hover:-translate-y-1 hover:scale-[1.02]
+        hover:shadow-xl hover:shadow-blue-500/20
       "
-    >
-      <div className="absolute top-0 left-0 w-full h-full rounded-2xl bg-gradient-to-tr from-blue-600/30 via-blue-900/30 to-purple-600/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div className="relative z-10">
-        <div className="bg-blue-600/30 inline-block p-3 rounded-lg border border-blue-500/50 mb-6">
-          <Icon className="text-blue-300" size={32} />
+      >
+        {/* Subtle glow effect */}
+        <div
+          className="
+          absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100
+          bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10
+          transition-opacity duration-500
+        "
+        ></div>
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col justify-center items-center gap-4">
+          <h3
+            className="
+            text-xl font-semibold text-white/90 group-hover:text-white
+            transition-colors duration-300
+            tracking-tight leading-snug
+          "
+          >
+            {title}
+          </h3>
+
+          <img src={img} alt="" className="rounded-lg " />
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
       </div>
     </Link>
   );

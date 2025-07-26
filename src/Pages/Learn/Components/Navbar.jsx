@@ -8,11 +8,20 @@ export const Navbar = ({ theme, setTheme }) => {
         <div className="flex items-center gap-2">
           <span className="text-xl font-bold text-white">
             &lt;LearnLog/&gt;
-            </span>
+          </span>
         </div>
 
         {/* Theme Toggle */}
         <div className="flex items-center gap-4">
+          <div class="bg-yellow-50 border border-yellow-200 rounded-full px-3 py-1 mx-2">
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+              <span class="text-yellow-700 text-xs font-medium">
+                Under Construction
+              </span>
+            </div>
+          </div>
+
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="p-2 rounded-full text-gray-300 hover:text-white hover:bg-white/10 transition-colors"

@@ -10,6 +10,7 @@ import {
 import { Navbar } from "./Components/Navbar.jsx";
 import { TopicCard } from "./Components/TopicCard.jsx";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const topics = [
   {
@@ -17,24 +18,28 @@ const topics = [
     title: "Web Development",
     description: "HTML, CSS, JavaScript, and the fundamentals of the modern web.",
     href: "/learn/web-dev",
+    img: "web-dev.png",
   },
   {
     icon: Database,
     title: "Data Structures & Algos",
     description: "Strengthen your problem-solving skills with essential computer science concepts.",
     href: "/learn/dsa",
+    img: "dsa.png",
   },
   {
     icon: BrainCircuit,
     title: "AI & Machine Learning",
     description: "Dive into the world of artificial intelligence, from basic concepts to advanced models.",
     href: "/learn/ai-ml",
+    img: "ml.png",
   },
   {
     icon: TerminalSquare,
-    title: "Other Resources",
+    title: "Others",
     description: "Explore a curated list of tools, articles, and guides for continuous learning.",
-    href: "/learn/resources",
+    href: "/learn/others",
+    // img: "web-dev.png",
   },
 ];
 
@@ -58,6 +63,10 @@ function Learn() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-white text-black dark:bg-black dark:text-white font-sans transition-colors duration-300 sm:px-28">
+      <Helmet>
+        <title>&lt;LearnLog/&gt;</title>
+        {/* <link rel="icon" href="/favicon.png" /> */}
+      </Helmet>
       {/* Gradient BG */}
       <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[150%] h-[150%] sm:w-[80rem] sm:h-[80rem] bg-[radial-gradient(circle,rgba(29,78,216,0.15),transparent_60%)] -z-0"></div>
 
@@ -83,10 +92,10 @@ function Learn() {
           {topics.map((topic) => (
             <TopicCard
               key={topic.title}
-              icon={topic.icon}
               title={topic.title}
               description={topic.description}
               href={topic.href}
+              img={topic.img}
             />
           ))}
         </div>

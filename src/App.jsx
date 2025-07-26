@@ -11,6 +11,7 @@ import './components/shooting-stars.css';
 import WebDev from "./Pages/Web-Dev/WebDev";
 import DSA from "./Pages/DSA/DSA";
 import MLDL from "./Pages/ML-DL/MLDL";
+import Others from "./Pages/Others/Others";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -42,6 +43,7 @@ function App() {
             <Route path="/learn/web-dev" element={<WebDev/>} />
             <Route path="/learn/ai-ml" element={<MLDL/>} />
             <Route path="/learn/dsa" element={<DSA/>} />
+            <Route path="/learn/others" element={<Others/>} />
           </Routes>
         </Router>
       )}
