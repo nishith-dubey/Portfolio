@@ -163,13 +163,13 @@ function LandingPage() {
                       {link.label}
                     </a>
                   ))}
-                  <a
+                  {/* <a
                     href="/learn"
                     className=" right-20 text-xl flex gap-1 items-center p-2 hover:bg-white hover:text-black duration-200 ease-in-out transition-all rounded-sm"
                   >
                     <span>Learn</span>
                     <ArrowRight className="-rotate-45" />
-                  </a>
+                  </a> */}
                 </div>
               )}
 
@@ -186,13 +186,13 @@ function LandingPage() {
                   </a>
                 ))}
               </div>
-              <a
+              {/* <a
                 href="/learn"
                 className="absolute right-20 text-xl font-semibold sm:flex gap-1 items-center py-2 px-4 hover:bg-white hover:text-black duration-200 ease-in-out transition-all rounded-sm -translate-y-[5px] hidden"
               >
                 <span>Learn</span>
                 <ArrowRight className="-rotate-45" />
-              </a>
+              </a> */}
             </div>
             <div className="w-full h-[2px] bg-cyan-400"></div>
           </div>

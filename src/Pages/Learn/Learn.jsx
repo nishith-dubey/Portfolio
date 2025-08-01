@@ -100,6 +100,7 @@ function Learn() {
           ))}
         </div>
       </main>
+      
     </div>
   );
 }
