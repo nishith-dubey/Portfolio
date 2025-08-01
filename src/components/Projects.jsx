@@ -17,21 +17,21 @@ const projectsData = [
   },
   {
     id: 2,
+    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1754014287/Screenshot_2025-08-01_073804_qtuvxt.png",
+    pName: "Code Together",
+    using: "React / Nodejs / Socket.io",
+    pLink: "https://code.nishith.store",
+    isLive: true,
+    category: "node", 
+  },
+  {
+    id: 3,
     image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882265/p2_t7xzwc.png",
     pName: "Machine Yard",
     using: "HTML / TailwindCSS / Node.js",
     pLink: "https://machine-yard.vercel.app",
     isLive: true,
     category: "node",
-  },
-  {
-    id: 3,
-    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751882262/p3_rqlkja.png",
-    pName: "Modern UI Music-Acad.",
-    using: "Next.js / Aceternity UI",
-    pLink: "https://music-8sbi994m6-nishith-dubeys-projects.vercel.app/",
-    isLive: true,
-    category: "react", // Next.js is a React framework
   },
   {
     id: 4,
@@ -71,15 +71,6 @@ const projectsData = [
   },
   {
     id: 8,
-    image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751812295/Screenshot_2025-07-06_200117_uy8lqj.png",
-    pName: "Code Together",
-    using: "React / Nodejs / Socket.io",
-    pLink: "https://code.nishith.store",
-    isLive: true,
-    category: "node", // MERN includes Node.js
-  },
-  {
-    id: 9,
     image: "https://res.cloudinary.com/dw3dcoqow/image/upload/v1751812301/Screenshot_2025-07-06_200002_jvuljq.png",
     pName: "Map (Fun Project)",
     using: "Ejs / Nodejs / Socket.io",
